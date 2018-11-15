@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import IdeaContainers from './ideaContainers.js'
+import BoardFilter from '../components/boardFilter.js'
 
 class Board extends Component {
 
@@ -47,6 +48,7 @@ class Board extends Component {
     render(){
       return (
         <div>
+          <BoardFilter />
           <p>IDEAS!</p>
           <IdeaContainers />
         </div>
