@@ -10,7 +10,7 @@ class IdeaContainers extends Component {
 
     render(){
       return (
-        <div>
+        <div className="idea-card">
           <Idea />
           <Comments />
           <CommentInput />

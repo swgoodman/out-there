@@ -13,6 +13,7 @@ class Board extends Component {
       {
         boardId: "board123",
         boardName: "Company Board",
+        active: true,
         ideas: [
           {
             id: 12335,
@@ -29,6 +30,7 @@ class Board extends Component {
       {
         boardId: "board456",
         boardName: "Personal Board",
+        active: false,
         ideas: [
           {
             id: 12335,
@@ -44,6 +46,10 @@ class Board extends Component {
       }]
     }
   }
+
+  onChangeBoard = ({ target: { value } }) => {
+    const this.state.filter({ filters: { ...this.state.filters, type: value } } )
+  };
 
 
     render(){

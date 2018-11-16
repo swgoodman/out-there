@@ -1,6 +1,6 @@
 import React from 'react'
 
-const boardFilter = ({  boards, onChangeType }) => {
+const boardFilter = ({  boards, onChangeBoard }) => {
   const boardOptions = boards.map(board => <option key={board.id} value={board.boardName}>{board.boardName}</option>);
 
 
@@ -9,7 +9,7 @@ const boardFilter = ({  boards, onChangeType }) => {
     <div>
       <h3>Pick a Board:</h3>
       <div className="field">
-        <select name="type" id="type" onChange={onChangeType}>
+        <select name="type" id="type" onChange={onChangeBoard}>
           {boardOptions}
         </select>
       </div>
