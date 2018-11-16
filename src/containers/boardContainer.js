@@ -49,7 +49,7 @@ class Board extends Component {
     render(){
       return (
         <div>
-          <BoardFilter />
+          <BoardFilter boards={this.state.boards}/>
           <p>IDEAS!</p>
           <IdeaContainers />
         </div>
