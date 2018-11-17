@@ -31,6 +31,7 @@ class CommentInput extends Component {
         <div>
           <form onSubmit={(event) => this.handleOnSubmit(event)} >
             <input type="text" value={this.state.header} onChange={(event) => this.handleOnChange(event)} />
+            <input type="text" value={this.state.body} onChange={(event) => this.handleOnChange(event)} />
             <input type="submit" />
           </form>
         </div>
