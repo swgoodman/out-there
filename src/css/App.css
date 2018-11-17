@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+
+.idea-card {
+  width: 350px;
+  height: auto;
+  color: green;
+  border:1px solid black;
+  background: yellow;
+}

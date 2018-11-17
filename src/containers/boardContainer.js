@@ -47,16 +47,14 @@ class Board extends Component {
     }
   }
 
-  onChangeBoard = ({ target: { value } }) => {
-    const this.state.filter({ filters: { ...this.state.filters, type: value } } )
-  };
-
 
     render(){
       return (
         <div>
           <BoardFilter boards={this.state.boards}/>
           <p>IDEAS!</p>
+          <IdeaContainers />
+          <IdeaContainers />
           <IdeaContainers />
         </div>
       );

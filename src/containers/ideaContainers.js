@@ -4,20 +4,23 @@ import Comments from '../components/comments.js'
 import Reactions from '../components/reactions.js'
 import CommentInput from '../components/commentInput.js'
 import ReactionInput from '../components/reactionInput.js'
+import Draggable from 'react-draggable';
 
 class IdeaContainers extends Component {
 
 
     render(){
       return (
-        <div className="idea-card">
-          <Idea />
-          <Comments />
-          <CommentInput />
-          <Reactions />
-          <ReactionInput />
+        <Draggable>
+          <div className="idea-card">
+            <Idea />
+            <Comments />
+            <CommentInput />
+            <Reactions />
+            <ReactionInput />
 
-        </div>
+          </div>
+        </Draggable>
       );
     }
 }
