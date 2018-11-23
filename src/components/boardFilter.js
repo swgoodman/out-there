@@ -1,7 +1,7 @@
 import React from 'react'
 
 const boardFilter = ({  boards, onChangeBoard }) => {
-  const boardOptions = boards.map(board => <option key={board.id} value={board.boardName}>{board.boardName}</option>);
+  const boardOptions = boards.map(board => <option key={board.boardId} value={board.boardName}>{board.boardName}</option>);
 
 
 
