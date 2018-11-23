@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class CommentInput extends Component {
 
   constructor(props) {
-  super(props);
+    super(props);
 
     this.state = {
       header: '',
@@ -11,7 +11,7 @@ class CommentInput extends Component {
     };
   };
 
-  handleOnChange = event => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -30,8 +30,8 @@ class CommentInput extends Component {
     return (
         <div>
           <form onSubmit={(event) => this.handleOnSubmit(event)} >
-            <input type="text" value={this.state.header} onChange={event => this.handleOnChange(event)} />
-            <input type="text" value={this.state.body} onChange={event => this.handleOnChange(event)} />
+            <input type="text" name="header" value={this.state.header} onChange={this.handleChange} />
+            <textarea type="text" name="body" value={this.state.body} onChange={this.handleChange} />
             <input type="submit" />
           </form>
         </div>
