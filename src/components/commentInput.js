@@ -11,13 +11,13 @@ class CommentInput extends Component {
     };
   };
 
-  handleOnChange(event) {
+  handleOnChange = event => {
     this.setState({
-      text: event.target.value,
-    });
+      [event.target.name]: event.target.value
+    })
   }
 
-  handleOnSubmit(event) {
+  handleOnSubmit = event => {
     event.preventDefault();
     this.props.addComment(this.state)
     this.setState({
@@ -30,8 +30,8 @@ class CommentInput extends Component {
     return (
         <div>
           <form onSubmit={(event) => this.handleOnSubmit(event)} >
-            <input type="text" value={this.state.header} onChange={(event) => this.handleOnChange(event)} />
-            <input type="text" value={this.state.body} onChange={(event) => this.handleOnChange(event)} />
+            <input type="text" value={this.state.header} onChange={event => this.handleOnChange(event)} />
+            <input type="text" value={this.state.body} onChange={event => this.handleOnChange(event)} />
             <input type="submit" />
           </form>
         </div>
