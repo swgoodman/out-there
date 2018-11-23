@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 
 class CommentInput extends Component {
 
-  constructor(props) {
-    super(props);
-
+  constructor () {
+    super();
     this.state = {
       header: '',
       body: ''
     };
-  };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   handleChange = event => {
     this.setState({
@@ -26,17 +26,27 @@ class CommentInput extends Component {
     });
   }
 
-  render() {
+    render() {
     return (
-        <div>
-          <form onSubmit={(event) => this.handleOnSubmit(event)} >
-            <input type="text" name="header" value={this.state.header} onChange={this.handleChange} />
-            <textarea type="text" name="body" value={this.state.body} onChange={this.handleChange} />
-            <input type="submit" />
-          </form>
-        </div>
-      );
-    }
+     <div>
+        <form onSubmit={this.handleOnSubmit} >
+          <label>Add Comment</label>
+          <input
+            type="text"
+            name="header"
+            value={this.state.header}
+            onChange={this.handleChange} />
+          <textarea
+            type="text"
+            name="body"
+            value={this.state.body}
+            onChange={this.handleChange} />
+
+          <input type="submit" />
+        </form>
+      </div>
+    );
+  }
 
 }
 
