@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class CommentInput extends Component {
 
-  constructor () {
+
+  constructor() {
     super();
+
     this.state = {
       header: '',
       body: ''
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = event => {
@@ -17,7 +18,7 @@ class CommentInput extends Component {
     })
   }
 
-  handleOnSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
     this.props.addComment(this.state)
     this.setState({
@@ -27,26 +28,26 @@ class CommentInput extends Component {
   }
 
     render() {
-    return (
-     <div>
-        <form onSubmit={this.handleOnSubmit} >
-          <label>Add Comment</label>
-          <input
-            type="text"
-            name="header"
-            value={this.state.header}
-            onChange={this.handleChange} />
-          <textarea
-            type="text"
-            name="body"
-            value={this.state.body}
-            onChange={this.handleChange} />
-
-          <input type="submit" />
-        </form>
-      </div>
-    );
-  }
+      return (
+       <div>
+          <form onSubmit={this.handleSubmit}>
+            <label>Add Comment</label>
+            <input
+              type="text"
+              name="header"
+              value={this.state.header}
+              onChange={this.handleChange} />
+            <textarea
+              type="text"
+              name="body"
+              value={this.state.body}
+              onChange={this.handleChange}
+               />
+            <input type="submit" />
+          </form>
+        </div>
+      );
+    }
 
 }
 
