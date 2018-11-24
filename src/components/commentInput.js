@@ -32,11 +32,6 @@ class CommentInput extends Component {
        <div>
           <form onSubmit={this.handleSubmit}>
             <label>Add Comment</label>
-            <input
-              type="text"
-              name="header"
-              value={this.state.header}
-              onChange={this.handleChange} />
             <textarea
               type="text"
               name="body"
