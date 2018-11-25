@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BoardContainer from './containers/boardContainer.js';
 import Inspiration from './containers/inspirationContainer.js';
+import Login from './containers/loginContainer.js';
 import logo from './logo.svg';
 import './css/App.css';
 
@@ -32,6 +33,7 @@ class App extends Component {
 
         <BoardContainer ideas={this.state.ideas}/>
         <Inspiration />
+        <Login />
 
       </div>
     );

@@ -75,4 +75,4 @@ class LoginInput extends Component {
 
 }
 
-export default Idea;
+export default LoginInput;
