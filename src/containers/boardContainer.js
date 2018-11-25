@@ -53,8 +53,10 @@ class Board extends Component {
         <div>
           <BoardFilter boards={this.state.boards}/>
           <p>IDEAS!</p>
-          <IdeaContainers />
-          <IdeaContainers />
+          <ul>
+            <li><IdeaContainers /></li>
+            <li><IdeaContainers /></li>
+          </ul>
         </div>
       );
     }
