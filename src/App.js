@@ -11,8 +11,8 @@ class App extends Component {
     super();
 
     this.state = {
-      fetchingData: false
-    }
+      fetchingData: false,
+      }
   }
 
   render() {
