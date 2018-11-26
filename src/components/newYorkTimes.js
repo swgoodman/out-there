@@ -10,29 +10,37 @@ class newYorkTimes extends Component {
     };
   }
 
-  const
-
-  componentWillMount() {
-    fetchArticles = () => {
-      let endpoint = 'https://api.nytimes.com/svc/topstories/v2/technology.json';
+  fetchArticles = () => {
+    let endpoint = 'https://api.nytimes.com/svc/topstories/v2/technology.json';
+    let key = ;
 
     fetch(endpoint, {
       method: 'get',
       headers: new Headers({
-        'api-key': NEW_YORK_TIMES_API_KEY
+        'api-key': key,
+        'mode': 'no-cors',
+        'Access-Control-Allow-Origin': '*',
+        'access-control-allow-credentials': "true"
+
       })
-    }).then(function(response) {
+    })
+    .then(function(response){
       return response.json();
-    }).then(function(myJson) {
-      console.log(JSON.stringify(myJson));
     });
-  };
+  }
+
+  componentDidMount() {
+
+    this.fetchArticles();
+  }
 
   render() {
     return (
-      <p>hello</p>
-    );
-  }
+        <div>
+
+        </div>
+      );
+    }
 }
 
 export default newYorkTimes;
