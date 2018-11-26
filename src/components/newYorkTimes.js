@@ -12,12 +12,10 @@ class newYorkTimes extends Component {
 
   fetchArticles = () => {
     let endpoint = 'https://api.nytimes.com/svc/topstories/v2/technology.json';
-    let key = ;
 
     fetch(endpoint, {
       method: 'get',
       headers: new Headers({
-        'api-key': key,
         'mode': 'no-cors',
         'Access-Control-Allow-Origin': '*',
         'access-control-allow-credentials': "true"
