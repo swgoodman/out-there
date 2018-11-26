@@ -31,9 +31,11 @@ class App extends Component {
                 <p>Content is up to date.</p>
             }
         </header>
-        <ListContainer />
-        <IdeaContainer />
-        <Inspiration />
+        <div className="blocks">
+          <ListContainer />
+          <IdeaContainer />
+          <Inspiration />
+        </div>
 
       </div>
     );
