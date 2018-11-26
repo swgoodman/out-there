@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import BoardContainer from './containers/boardContainer.js';
+import ListContainer from './containers/listContainer.js';
 import Inspiration from './containers/inspirationContainer.js';
+import IdeaContainer from './containers/ideaContainers.js'
 import Login from './containers/loginContainer.js';
 import logo from './logo.svg';
 import './css/App.css';
@@ -30,10 +31,9 @@ class App extends Component {
                 <p>Content is up to date.</p>
             }
         </header>
-
-        <BoardContainer ideas={this.state.ideas}/>
+        <ListContainer />
+        <IdeaContainer />
         <Inspiration />
-        <Login />
 
       </div>
     );

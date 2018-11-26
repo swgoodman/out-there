@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import IdeaContainers from './ideaContainers.js'
-import BoardFilter from '../components/boardFilter.js'
+import Idea from '../components/idea.js'
 
-class Board extends Component {
+class IdeaList extends Component {
 
 
   constructor() {
@@ -51,15 +50,14 @@ class Board extends Component {
     render(){
       return (
         <div>
-          <BoardFilter boards={this.state.boards}/>
           <p>IDEAS!</p>
           <ul>
-            <li><IdeaContainers /></li>
-            <li><IdeaContainers /></li>
+            <li><Idea /></li>
+            <li><Idea /></li>
           </ul>
         </div>
       );
     }
 }
 
-export default Board;
+export default IdeaList;
