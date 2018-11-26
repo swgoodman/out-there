@@ -49,7 +49,7 @@ class IdeaList extends Component {
 
     render(){
       return (
-        <div>
+        <div className="block" id="list-container">
           <p>IDEAS!</p>
           <ul>
             <li><Idea /></li>

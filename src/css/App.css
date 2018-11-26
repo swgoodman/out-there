@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+    height:100vh;
 }
 
 .App-logo {
@@ -9,15 +10,14 @@
 
 .App-header {
   background-image: url("https://images.unsplash.com/photo-1497897271578-5f45bb7a8400?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ca4bbe5e61a473ddb32bac5eab4107c6&auto=format&fit=crop&w=1500&q=80");
-  min-height: 10vh;
+  height: 10vh;
   background-size: cover;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 25px;
   color: white;
+  padding: 20px;
 }
 
 .App-link {
@@ -33,10 +33,12 @@
   }
 }
 
-.idea-card {
-  width: 350px;
-  height: auto;
-  color: green;
-  border:1px solid black;
-  background: yellow;
+.grid-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 90vh ;
+}
+
+.block {
+  border: 5px black solid
 }

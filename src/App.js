@@ -31,7 +31,7 @@ class App extends Component {
                 <p>Content is up to date.</p>
             }
         </header>
-        <div className="blocks">
+        <div className="grid-blocks">
           <ListContainer />
           <IdeaContainer />
           <Inspiration />
