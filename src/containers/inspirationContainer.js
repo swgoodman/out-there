@@ -6,7 +6,6 @@ class InspirationContainer extends Component {
       return (
         <div>
           <p>INSPIRATION</p>
-          <NewYorkTimes/>
         </div>
       );
     }
