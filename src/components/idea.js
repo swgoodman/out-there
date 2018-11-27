@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import CommentContainer from '../containers/commentContainer.js'
+
 class Idea extends Component {
 
 
@@ -50,6 +52,7 @@ class Idea extends Component {
             </form>
 
             <button onClick={() => this.handleOnClick()}> X </button>
+            <CommentContainer />
           </div>
         );
       }
