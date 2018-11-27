@@ -46,11 +46,20 @@ class IdeaList extends Component {
     }
   }
 
+  handleOnSubmit(event) {
+    event.preventDefault();
+    this.props.addIdea(this.state.header, this.state.body)
+    this.setState({
+      text: ''
+    });
+  }
+
 
     render(){
       return (
         <div className="block" id="list-container">
           <p>IDEAS!</p>
+          <button className="action-button" onclick={(event) => this.handleOnClick(event)}>I got an idea!</button>
           <ul>
             <li><Idea /></li>
             <li><Idea /></li>
