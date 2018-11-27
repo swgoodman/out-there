@@ -27,6 +27,10 @@ class Idea extends Component {
       });
     }
 
+    handleOnClick() {
+      this.props.deleteIdea(this.props.idea.id);
+    }
+
       render() {
         return (
          <div>
@@ -44,6 +48,8 @@ class Idea extends Component {
                  />
               <input type="submit" />
             </form>
+
+            <button onClick={() => this.handleOnClick()}> X </button>
           </div>
         );
       }
