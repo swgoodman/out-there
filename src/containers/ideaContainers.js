@@ -14,7 +14,6 @@ class IdeaContainers extends Component {
             <Idea />
             <Reactions />
             <CommentContainer />
-
           </div>
       );
     }
