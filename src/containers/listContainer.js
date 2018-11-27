@@ -55,14 +55,25 @@ class IdeaList extends Component {
   }
 
 
-    render(){
+
+
+  render() {
+  //   const { ideas, deleteIdea } = this.props;
+  //   const ideaList = ideas.map(idea => {
+  //     return (
+  //       <Idea
+  //       key={idea.id}
+  //       idea={idea}
+  //       deleteIdea={deleteIdea}
+  //       />
+  //     )
+  //   });
       return (
         <div className="block" id="list-container">
           <p>IDEAS!</p>
           <button className="action-button" onclick={(event) => this.handleOnClick(event)}>I got an idea!</button>
           <ul>
-            <li><Idea /></li>
-            <li><Idea /></li>
+
           </ul>
         </div>
       );
