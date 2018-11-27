@@ -11,9 +11,9 @@ class IdeaContainers extends Component {
       return (
           <div className="block" id="idea-container">
             <Idea />
-            <Comments />
-            <CommentInput />
             <Reactions />
+            <CommentInput />
+            <Comments />
 
           </div>
       );
