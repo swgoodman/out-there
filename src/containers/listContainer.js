@@ -50,7 +50,8 @@ class IdeaList extends Component {
     event.preventDefault();
     this.props.addIdea(this.state.header, this.state.body)
     this.setState({
-      text: ''
+      header: '',
+      body: ''
     });
   }
 
