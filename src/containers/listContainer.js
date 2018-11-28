@@ -82,4 +82,11 @@ class IdeaList extends Component {
     }
 }
 
+  const mapStateToProps = state => ({ ideas: state.restaurants })
+
+  const mapDispatchToProps = dispatch => ({
+    addIdea: header => dispatch({type: 'ADD_IDEA', header}),
+    deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
+  })
+
 export default IdeaList;
