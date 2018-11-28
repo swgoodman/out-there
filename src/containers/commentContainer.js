@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Comments from '../components/comments.js'
 import CommentInput from '../components/commentInput.js'
+import { connect } from 'react-redux'
 
 class CommentContainers extends Component {
 

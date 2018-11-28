@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewYorkTimes from '../components/newYorkTimes.js'
+import { connect } from 'react-redux'
 
 class InspirationContainer extends Component {
     render(){

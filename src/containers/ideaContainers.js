@@ -3,6 +3,7 @@ import Idea from '../components/idea.js'
 import Comments from '../components/comments.js'
 import Reactions from '../components/reactions.js'
 import CommentInput from '../components/commentInput.js'
+import { connect } from 'react-redux'
 
 class IdeaContainers extends Component {
 

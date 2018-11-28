@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Idea from '../components/idea.js'
+import { connect } from 'react-redux'
 
 class IdeaList extends Component {
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Login from '../components/loginInput.js'
+import { connect } from 'react-redux'
 
 class LoginContainer extends Component {
     render(){
