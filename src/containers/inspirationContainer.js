@@ -12,4 +12,6 @@ class InspirationContainer extends Component {
     }
 }
 
-export default InspirationContainer;
+const mapStateToProps = state => ({ inspiration: state.inspiration })
+
+export default connect(mapStateToProps)(InspirationContainer);
