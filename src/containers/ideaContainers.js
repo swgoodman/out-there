@@ -18,4 +18,10 @@ class IdeaContainers extends Component {
     }
 }
 
-export default IdeaContainers;
+const mapStateToProps = state => ({ ideas: state.ideas })
+
+const mapDispatchToProps = dispatch => ({
+  deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(IdeaContainers);

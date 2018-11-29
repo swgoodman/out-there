@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Idea from '../components/idea.js'
 import { connect } from 'react-redux'
 
-class IdeaList extends Component {
+class IdeaListContainer extends Component {
 
 
   constructor() {
@@ -82,11 +82,11 @@ class IdeaList extends Component {
     }
 }
 
-  const mapStateToProps = state => ({ ideas: state.restaurants })
+  const mapStateToProps = state => ({ ideas: state.ideas })
 
   const mapDispatchToProps = dispatch => ({
     addIdea: header => dispatch({type: 'ADD_IDEA', header}),
     deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
   })
 
-export default IdeaList;
+export default  connect(mapStateToProps, mapDispatchToProps)(IdeaListContainer);
