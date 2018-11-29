@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListContainer from './containers/listContainer.js';
+import IdeaListContainer from './containers/listContainer.js';
 import Inspiration from './containers/inspirationContainer.js';
 import IdeaContainer from './containers/ideaContainers.js'
 import Login from './containers/loginContainer.js';
@@ -32,7 +32,7 @@ class App extends Component {
             }
         </header>
         <div className="grid-blocks">
-          <ListContainer />
+          <IdeaListContainer />
           <IdeaContainer />
           <Inspiration />
         </div>

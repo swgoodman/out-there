@@ -20,8 +20,8 @@ class CommentContainers extends Component {
 const mapStateToProps = state => ({ ideas: state.ideas })
 
 const mapDispatchToProps = dispatch => ({
-  addIdea: header => dispatch({type: 'ADD_IDEA', header}),
-  deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
+  addComment: header => dispatch({type: 'ADD_COMMENT', header}),
+  deleteComment: id => dispatch({type: 'DELETE_COMMENT', id})
 })
 
-export default  connect(mapStateToProps, mapDispatchToProps)(IdeaListContainer);
+export default  connect(mapStateToProps, mapDispatchToProps)(CommentContainers);
