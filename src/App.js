@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import IdeaListContainer from './containers/listContainer.js';
 import Inspiration from './containers/inspirationContainer.js';
 import IdeaContainer from './containers/ideaContainers.js'
-import Login from './containers/loginContainer.js';
 import logo from './logo.svg';
 import './css/App.css';
 
