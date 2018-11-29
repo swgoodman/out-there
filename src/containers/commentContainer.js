@@ -17,4 +17,11 @@ class CommentContainers extends Component {
     }
 }
 
-export default CommentContainers;
+const mapStateToProps = state => ({ ideas: state.ideas })
+
+const mapDispatchToProps = dispatch => ({
+  addIdea: header => dispatch({type: 'ADD_IDEA', header}),
+  deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
+})
+
+export default  connect(mapStateToProps, mapDispatchToProps)(IdeaListContainer);
