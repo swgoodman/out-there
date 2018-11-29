@@ -13,4 +13,11 @@ class LoginContainer extends Component {
     }
 }
 
-export default LoginContainer;
+const mapStateToProps = state => ({ user: state.user })
+
+const mapDispatchToProps = dispatch => ({
+  login: header => dispatch({type: 'LOGIN', header}),
+  signup: id => dispatch({type: 'SIGN_UP', id})
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

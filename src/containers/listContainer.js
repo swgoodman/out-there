@@ -75,7 +75,7 @@ class IdeaListContainer extends Component {
           <p>IDEAS!</p>
           <button className="action-button" onclick={(event) => this.handleOnClick(event)}>I got an idea!</button>
           <ul>
-
+            <Idea />
           </ul>
         </div>
       );
@@ -89,4 +89,4 @@ class IdeaListContainer extends Component {
     deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
   })
 
-export default  connect(mapStateToProps, mapDispatchToProps)(IdeaListContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(IdeaListContainer);
