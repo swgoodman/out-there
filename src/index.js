@@ -5,11 +5,11 @@ import App from './App';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import manageIdeas from './reducers/manageIdeas'
+import reducers from './reducers'
 
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(manageIdeas)
+const store = createStore(reducers)
 
 ReactDOM.render(
   <Provider store={store}>
