@@ -1,7 +1,13 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
+const initState = {
+  dogsImageArray: [],
+  requesting: false
+}
+
 export default function manageIdeas(state = {
+  users: [],
   ideas: [],
   comments: [],
 }, action) {
