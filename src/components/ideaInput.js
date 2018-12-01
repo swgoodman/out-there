@@ -52,7 +52,6 @@ class IdeaInput extends Component {
             </form>
 
             <button onClick={() => this.handleOnClick()}> X </button>
-            <CommentContainer />
           </div>
         );
       }
