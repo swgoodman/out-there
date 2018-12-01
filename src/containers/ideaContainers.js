@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Idea from '../components/idea.js'
 import Reactions from '../components/reactions.js'
+import IdeaInput from '../components/ideaInput.js'
 import CommentContainer from './commentContainer'
 import { connect } from 'react-redux'
 
@@ -11,6 +12,7 @@ class IdeaContainers extends Component {
       return (
           <div className="block" id="idea-container">
             <Idea />
+            <IdeaInput />
             <Reactions />
             <CommentContainer />
           </div>
