@@ -70,6 +70,9 @@ class IdeaListContainer extends Component {
   //       />
   //     )
   //   });
+
+  // IDEA EACH DO
+  // CREATE ONE IDEA COMPONENT WITH NAME AUTHOR AND BODY PROPS
       return (
         <div className="block" id="list-container">
           <p>IDEAS!</p>
