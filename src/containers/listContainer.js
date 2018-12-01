@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import Idea from '../components/idea.js'
 import { connect } from 'react-redux'
+import { fetchIdeas, fetchIdeasSuccess, fetchIdeasFailure } from '../actions/ideas';
 
 class IdeaListContainer extends Component {
+  // componentWillMount() {
+  //   this.props.fetchIdeas();
+  // }
 
 
   constructor() {
@@ -57,9 +61,9 @@ class IdeaListContainer extends Component {
   }
 
 
-
-
   render() {
+    // IDEA EACH DO
+    // CREATE ONE IDEA COMPONENT WITH NAME AUTHOR AND BODY PROPS
   //   const { ideas, deleteIdea } = this.props;
   //   const ideaList = ideas.map(idea => {
   //     return (
@@ -71,8 +75,6 @@ class IdeaListContainer extends Component {
   //     )
   //   });
 
-  // IDEA EACH DO
-  // CREATE ONE IDEA COMPONENT WITH NAME AUTHOR AND BODY PROPS
       return (
         <div className="block" id="list-container">
           <p>IDEAS!</p>
@@ -87,9 +89,14 @@ class IdeaListContainer extends Component {
 
   const mapStateToProps = state => ({ ideas: state.ideas })
 
-  const mapDispatchToProps = dispatch => ({
-    addIdea: header => dispatch({type: 'ADD_IDEA', header}),
-    deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
-  })
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchIdeas: () => {
+        dispatch(fetchIdeas()).then((response) => {
+              !response.error ? dispatch(fetchIdeasSuccess(response.payload.data)) : dispatch(fetchIdeasFailure(response.payload.data));
+            });
+      }
+    }
+  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IdeaListContainer);
