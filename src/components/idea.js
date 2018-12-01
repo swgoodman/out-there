@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 
 const Idea = () => {
+
+  const { idea } = this.props;
+
       return (
         <div>
-          <h1>Idea Details</h1>
+          <h1>{idea.header}</h1>
         </div>
       );
 
