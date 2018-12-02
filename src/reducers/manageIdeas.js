@@ -1,15 +1,18 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
-const initState = {
-  dogsImageArray: [],
-  requesting: false
-}
-
 export default function manageIdeas(state = {
-  users: [],
-  ideas: [],
-  comments: [],
+  ideas: [{
+    id: '1',
+    header: "What's Up!",
+    body: "this is a great idea."
+  },
+  {
+    id: '2',
+    header: "What's Up!",
+    body: "this is also a great idea."
+  }
+  ]
 }, action) {
   switch (action.type) {
 

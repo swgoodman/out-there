@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 
-const Idea = () => {
+class Idea extends Component {
 
-  const { idea } = this.props;
+  render() {
+    const { idea } = this.props;
 
-      return (
+
+    return (
         <div>
-          <h1>{idea.header}</h1>
+          <h1>{idea.idea}</h1>
         </div>
       );
 
-}
+    }
+  };
 
 export default Idea;

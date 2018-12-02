@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Idea from '../components/idea.js'
+import Ideas from '../components/ideas.js'
 import { connect } from 'react-redux'
 import { fetchIdeas, fetchIdeasSuccess, fetchIdeasFailure } from '../actions/ideas';
 
@@ -8,48 +8,19 @@ class IdeaListContainer extends Component {
   //   this.props.fetchIdeas();
   // }
 
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.addIdea(this.state.header, this.state.body)
-    this.setState({
-      header: '',
-      body: ''
-    });
-  }
-
-
   render() {
-
-    const ideaList = ideas.map(idea => {
-      return (
-        <Idea
-        key={idea.id}
-        idea={idea}
-        />
-      )
-    });
 
       return (
         <div className="block" id="list-container">
           <p>IDEAS!</p>
-          <button className="action-button" onclick={(event) => this.handleOnClick(event)}>I got an idea!</button>
-          <ul>
-            { ideaList }
-          </ul>
+          <button className="action-button" onClick={(event) => this.handleOnClick(event)}>I got an idea!</button>
+          <Ideas ideas={this.props.ideas} />
         </div>
       );
     }
 }
 
-  const mapStateToProps = state => ({ ideas: [{
-    header: "What's Up!",
-    body: "this is a great idea."
-  },
-  {
-    header: "What's Up!",
-    body: "this is also a great idea."
-  }
-  ] })
+  const mapStateToProps = state => ({ ideas: state.ideas})
 
   const mapDispatchToProps = (dispatch) => {
     return {
