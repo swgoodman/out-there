@@ -8,6 +8,11 @@ class IdeaListContainer extends Component {
   //   this.props.fetchIdeas();
   // }
 
+  handleOnClick(event) {
+    event.preventDefault();
+    this.props.addIdea();
+  }
+
   render() {
 
       return (
@@ -20,16 +25,10 @@ class IdeaListContainer extends Component {
     }
 }
 
-  const mapStateToProps = state => ({ ideas: state.ideas})
+const mapStateToProps = state => ({ ideas: state.ideas })
 
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchIdeas: () => {
-        dispatch(fetchIdeas()).then((response) => {
-              !response.error ? dispatch(fetchIdeasSuccess(response.payload.data)) : dispatch(fetchIdeasFailure(response.payload.data));
-            });
-      }
-    }
-  }
+const mapDispatchToProps = dispatch => ({
+  addIdea: body => dispatch({type: 'ADD_IDEA'})
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(IdeaListContainer);

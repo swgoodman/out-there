@@ -8,7 +8,7 @@ class Idea extends Component {
 
     return (
         <div>
-          <h1>{idea.idea}</h1>
+          <h1></h1>
         </div>
       );
 
