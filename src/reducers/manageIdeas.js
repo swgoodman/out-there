@@ -12,8 +12,7 @@ export default function manageIdeas(state = {
     header: "What's Up!",
     body: "this is also a great idea."
   }
-  ]
-}, action) {
+  ]}, action) {
   switch (action.type) {
 
     case 'ADD_IDEA':
