@@ -4,12 +4,12 @@ import Idea from './idea';
 class Ideas extends Component {
 
   render() {
-    const { ideas } = this.props;
-    const ideaList = ideas.ideas.map(idea => {
+    const { ideas, deleteIdea } = this.props;
+    const ideaList = ideas.map(idea => {
       return (
         <Idea
-        key={idea.id}
-        idea={idea}
+          key={idea.id}
+          idea={idea}
         />
       )
     });
@@ -19,6 +19,7 @@ class Ideas extends Component {
         {ideaList}
       </ul>
     );
+
   }
 };
 
