@@ -31,7 +31,6 @@ class App extends Component {
             }
         </header>
         <div className="grid-blocks">
-          <IdeaListContainer />
           <IdeaContainer />
           <Inspiration />
         </div>

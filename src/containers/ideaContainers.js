@@ -20,7 +20,11 @@ class IdeaContainers extends Component {
     }
 }
 
-const mapStateToProps = state => ({ ideas: state.ideas.all })
+const mapStateToProps = state => {
+  return {
+    ideas: state.ideas.all
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   deleteIdea: id => dispatch({type: 'DELETE_IDEA', id})
