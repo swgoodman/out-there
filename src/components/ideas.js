@@ -5,6 +5,7 @@ class Ideas extends Component {
 
   render() {
     const { ideas, deleteIdea } = this.props;
+    console.log(ideas)
     const ideaList = ideas.map(idea => {
       return (
         <Idea
