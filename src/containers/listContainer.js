@@ -10,22 +10,24 @@ class IdeaListContainer extends Component {
   }
 
   render() {
-
+      const { ideas, deleteIdea } = this.props
+      debugger
+      
       return (
         <div className="block" id="list-container">
           <p>IDEAS!</p>
           <button className="action-button" onClick={(event) => this.handleOnClick(event)}>I got an idea!</button>
 
           <Ideas
-            ideas={this.props.ideas}
-            deleteIdea={this.props.deleteIdea}
+            ideas={ideas}
+            deleteIdea={deleteIdea}
           />
         </div>
       );
     }
 }
 
-const mapStateToProps = state => ({ ideas: state })
+const mapStateToProps = state => ({ ideas: state.ideas.all })
 
 const mapDispatchToProps = dispatch => ({
   addIdea: body => dispatch({type: 'ADD_IDEA'}),
