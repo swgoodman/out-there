@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
-import CommentContainer from '../containers/commentContainer.js'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class IdeaInput extends Component {
 

@@ -6,6 +6,7 @@ import logo from '../logo.svg';
 import '../css/App.css';
 
 import Idea from '../components/idea.js'
+import IdeaInput from '../components/ideaInput.js'
 
 class IdeaList extends Component {
 
@@ -36,6 +37,7 @@ class IdeaList extends Component {
         </header>
 
         <div className="grid-blocks">
+
           { ideas.map(idea => <Idea key={ idea.id } idea={ idea } />)}
         </div>
 
