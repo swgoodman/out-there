@@ -1,13 +1,13 @@
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
+import logo from '../logo.svg';
+import '../css/App.css';
 
-import React, { Component } from 'react';
-import IdeaListContainer from './containers/listContainer.js';
-import Inspiration from './containers/inspirationContainer.js';
-import IdeaContainer from './containers/ideaContainers.js'
-import logo from './logo.svg';
-import './css/App.css';
+import Idea from '../components/idea.js'
 
-class App extends Component {
+class IdeaList extends Component {
 
   constructor() {
     super();
@@ -21,6 +21,8 @@ class App extends Component {
 
     const {fetchingData} = this.state
 
+    const { ideas } = this.props
+
     return (
       <div className="App">
         <header className="App-header">
@@ -33,9 +35,8 @@ class App extends Component {
             }
         </header>
         <div className="grid-blocks">
-          <IdeaListContainer />
-          <IdeaContainer />
-          <Inspiration />
+          { ideas.map(idea => <Idea key={ idea.id } idea={ idea } />)
+          }
         </div>
 
       </div>
@@ -43,4 +44,9 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({ ideas: state.ideas.all })
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(IdeaList)

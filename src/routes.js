@@ -6,7 +6,7 @@ import IdeaList from './containers/IdeaList'
 export default (
   <BrowserRouter>
     <Switch id='routes'>
-      <Route exact path='/' render={ <IdeaList/> }/>
+      <Route exact path='/' render={ () => <IdeaList /> } />/>
     </Switch>
   </BrowserRouter>
 )
