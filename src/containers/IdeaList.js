@@ -34,9 +34,9 @@ class IdeaList extends Component {
                 <p>Content is up to date.</p>
             }
         </header>
+
         <div className="grid-blocks">
-          { ideas.map(idea => <Idea key={ idea.id } idea={ idea } />)
-          }
+          { ideas.map(idea => <Idea key={ idea.id } idea={ idea } />)}
         </div>
 
       </div>
