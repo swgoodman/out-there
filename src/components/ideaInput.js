@@ -34,18 +34,22 @@ class IdeaInput extends Component {
     }
 
       render() {
+        const { title, description } = this.state
+
         return (
          <div>
             <form onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 name="header"
-                value={this.state.header}
+                placeholder="What's the big idea?"
+                value= { header }
                 onChange={this.handleChange} />
               <textarea
                 type="text"
                 name="body"
-                value={this.state.body}
+                placeholder="Details"
+                value={ body }
                 onChange={this.handleChange}
                  />
               <input type="submit" />
@@ -58,4 +62,8 @@ class IdeaInput extends Component {
 
 }
 
-export default IdeaInput;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  createIdea
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(TodoForm)
