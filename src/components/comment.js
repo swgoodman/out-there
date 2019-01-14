@@ -1,13 +1,12 @@
 import React from 'react'
 
-const Comment = () => {
+const Comment = ({ comment: { id, body }, ideaId, deleteComment}) => {
       return (
         <div>
-          <ul>
-            <li>Comment - User</li>
-            <li>Comment - User</li>
-            <li>Comment - User</li>
-          </ul>
+          <li>
+            { body }
+            <button onClick={ () => deleteComment(id, ideaId) }>Delete</button>
+          </li>
         </div>
       );
 
