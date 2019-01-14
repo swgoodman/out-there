@@ -37,7 +37,7 @@ class IdeaList extends Component {
         </header>
 
         <div className="grid-blocks">
-
+          <IdeaInput/>
           { ideas.map(idea => <Idea key={ idea.id } idea={ idea } />)}
         </div>
 

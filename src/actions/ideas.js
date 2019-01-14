@@ -1,3 +1,5 @@
+const baseUrl = 'http://localhost:3000/api/v1'
+
 //Idea list
 export const FETCH_IDEAS = 'FETCH_IDEAS';
 export const FETCH_IDEAS_SUCCESS = 'FETCH_IDEAS_SUCCESS';
@@ -31,4 +33,26 @@ export function fetchIdeasFailure(error) {
     type: FETCH_IDEAS_FAILURE,
     payload: error
   };
+}
+
+export const createIdea = idea => {
+  let data = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
+    },
+    body: JSON.stringify({ idea })
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/ideas`, data)
+      .then(response => response.json())
+      .then(todo => dispatch({
+        type: 'CREATE_IDEA',
+        payload: idea
+      }))
+      .catch(err => err)
+  }
 }
