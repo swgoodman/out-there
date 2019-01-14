@@ -6,13 +6,23 @@ const initialState =  {
   all: [
     {
       id: '1',
-      header: "What's Up!",
+      header: "Russian Manchurian Candidate",
       body: "this is a great idea."
     },
     {
       id: '2',
-      header: "What's Up!",
-      body: "this is also a great idea."
+      header: "Beaux for President",
+      body: "2020"
+    },
+    {
+      id: '3',
+      header: "Young Thug is a god?",
+      body: "Read a book."
+    },
+    {
+      id: '4',
+      header: "Lightning Chicken Nuggets",
+      body: "Sounds like flying cars"
     }
   ]
 }
