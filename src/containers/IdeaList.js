@@ -5,6 +5,10 @@ import { connect } from 'react-redux'
 import logo from '../logo.svg';
 import '../css/App.css';
 
+import { fetchUser } from '../actions/users'
+import { fetchIdeas, deleteIdea } from '../actions/ideas'
+import { deleteComment } from '../actions/comments'
+
 import Idea from '../components/idea.js'
 import IdeaInput from '../components/ideaInput.js'
 
@@ -18,11 +22,16 @@ class IdeaList extends Component {
       }
   }
 
+  componentWillMount() {
+    this.props.fetchUser()
+    this.props.fetchIdeas()
+  }
+
   render() {
 
     const {fetchingData} = this.state
 
-    const { ideas } = this.props
+    const { user, ideas } = this.props
 
     return (
       <div className="App">
@@ -37,8 +46,9 @@ class IdeaList extends Component {
         </header>
 
         <div className="grid-blocks">
+          <div>{ user.firstname } { user.lastname }</div>
           <IdeaInput/>
-          { ideas.map(idea => <Idea key={ idea.id } idea={ idea } />)}
+          { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.comment }/>)}
         </div>
 
       </div>
@@ -46,9 +56,18 @@ class IdeaList extends Component {
   }
 }
 
-const mapStateToProps = state => ({ ideas: state.ideas.all })
+const mapStateToProps = state => {
+  return {
+    user: state.user.current,
+    ideas: state.ideas.all
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchUser,
+  fetchIdeas,
+  deleteIdea,
+  deleteComment
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(IdeaList)
