@@ -13,7 +13,8 @@ export const loginUser = (user, callback) => {
   return dispatch => {
     fetch(`${ baseUrl }/login`, data)
       .then(response => response.json())
-      .then(user => dispatch({
+      .then(user => {
+        dispatch({
           type: 'SET_USER',
           payload: user.current
         })
@@ -37,7 +38,8 @@ export const signupUser = (user, callback) => {
   return dispatch => {
     fetch(`${ baseUrl }/signup`, data)
       .then(response => response.json())
-      .then(user => dispatch({
+      .then(user => {
+        dispatch({
           type: 'SET_USER',
           payload: user.current
         })
