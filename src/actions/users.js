@@ -49,3 +49,25 @@ export const signupUser = (user, callback) => {
       .catch(err => err)
   }
 }
+
+export const fetchUser = () => {
+  let data = {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/user`, data)
+      .then(response => response.json())
+      .then(user => {
+        dispatch({
+          type: 'SET_USER',
+          payload: user
+        })
+      })
+      .catch(err => err)
+  }
+}
