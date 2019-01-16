@@ -13,6 +13,10 @@ import Idea from '../components/idea.js'
 import IdeaInput from '../components/ideaInput.js'
 
 class IdeaList extends Component {
+  componentWillMount() {
+    this.props.fetchUser()
+    this.props.fetchIdeas()
+  }
 
   constructor() {
     super();
@@ -22,38 +26,32 @@ class IdeaList extends Component {
       }
   }
 
-  componentWillMount() {
-    this.props.fetchUser()
-    this.props.fetchIdeas()
-  }
+    render() {
 
-  render() {
+      const {fetchingData} = this.state
+      const { user, ideas } = this.props
 
-    const {fetchingData} = this.state
+      return (
+        <div className="App">
+          <header className="App-header">
+            <h1>Out There</h1>
+              {
+                fetchingData ?
+                  <img src={logo} className="App-logo" alt="logo" />
+                :
+                  <p>Content is up to date.</p>
+              }
+          </header>
 
-    const { user, ideas } = this.props
+          <div className="grid-blocks">
+            <div>{ user.firstname } { user.lastname }</div>
+            <IdeaInput/>
+            { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.comment }/>)}
+          </div>
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Out There</h1>
-            {
-              fetchingData ?
-                <img src={logo} className="App-logo" alt="logo" />
-              :
-                <p>Content is up to date.</p>
-            }
-        </header>
-
-        <div className="grid-blocks">
-          <div>{ user.firstname } { user.lastname }</div>
-          <IdeaInput/>
-          { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.comment }/>)}
         </div>
-
-      </div>
-    );
-  }
+      );
+    }
 }
 
 const mapStateToProps = state => {
