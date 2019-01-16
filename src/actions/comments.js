@@ -31,10 +31,30 @@ export const createComment = (comment, ideaId) => {
   }
 
   return dispatch => {
-    fetch(`${ baseUrl }/ideas/${ ideaId }/sub_todos`, data)
+    fetch(`${ baseUrl }/ideas/${ ideaId }/comments`, data)
       .then(response => response.json())
       .then(subTodo => dispatch({
         type: 'CREATE_COMMENT',
+        payload: comment
+      }))
+      .catch(err => err)
+  }
+}
+
+export const deleteComment = (id, todoId) => {
+  let data = {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/ideas/${ ideaId }/comments/${ id }`, data)
+      .then(response => response.json())
+      .then(subTodo => dispatch({
+        type: 'DELETE_COMMENT',
         payload: comment
       }))
       .catch(err => err)
