@@ -20,27 +20,12 @@ export const fetchIdeas = () => {
   }
 }
 
-export function fetchIdeasSuccess(IDEAS) {
-  return {
-    type: FETCH_IDEAS_SUCCESS,
-    payload: 'idea'
-  };
-}
-
-export function fetchIdeasFailure(error) {
-  return {
-    type: FETCH_IDEAS_FAILURE,
-    payload: error
-  };
-}
-
 export const createIdea = idea => {
   let data = {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': sessionStorage.jwt
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({ idea })
   }
@@ -50,6 +35,26 @@ export const createIdea = idea => {
       .then(response => response.json())
       .then(todo => dispatch({
         type: 'CREATE_IDEA',
+        payload: idea
+      }))
+      .catch(err => err)
+  }
+}
+
+export const deleteIdea = id => {
+  let data = {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/ideas/${ id }`, data)
+      .then(response => response.json())
+      .then(todo => dispatch({
+        type: 'DELETE_IDEA',
         payload: idea
       }))
       .catch(err => err)
