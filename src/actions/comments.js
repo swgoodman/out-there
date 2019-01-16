@@ -5,7 +5,8 @@ export const fetchComments = idea => {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     }
   }
 
@@ -25,7 +26,8 @@ export const createComment = (comment, ideaId) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     },
     body: JSON.stringify({ comment: comment })
   }
@@ -46,7 +48,8 @@ export const deleteComment = (id, todoId) => {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     }
   }
 
