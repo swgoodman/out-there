@@ -16,3 +16,11 @@ export default (
     </Switch>
   </BrowserRouter>
 )
+
+const loggedIn = () => !!sessionStorage['jwt']
+
+const logout = () => {
+  if(sessionStorage['jwt']) sessionStorage.removeItem('jwt')
+
+  return <Redirect to="/login"/>
+}

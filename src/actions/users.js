@@ -14,6 +14,8 @@ export const loginUser = (user, callback) => {
     fetch(`${ baseUrl }/login`, data)
       .then(response => response.json())
       .then(user => {
+        sessionStorage.setItem('jwt', user.jwt)
+
         dispatch({
           type: 'SET_USER',
           payload: user.current
@@ -39,6 +41,8 @@ export const signupUser = (user, callback) => {
     fetch(`${ baseUrl }/signup`, data)
       .then(response => response.json())
       .then(user => {
+        sessionStorage.setItem('jwt', user.jwt)
+
         dispatch({
           type: 'SET_USER',
           payload: user.current
@@ -55,7 +59,8 @@ export const fetchUser = () => {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     }
   }
 
