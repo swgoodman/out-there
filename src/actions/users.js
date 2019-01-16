@@ -24,3 +24,28 @@ export const loginUser = (user, callback) => {
       .catch(err => err)
   }
 }
+
+export const signupUser = (user, callback) => {
+  let data = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user })
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/signup`, data)
+      .then(response => response.json())
+
+        dispatch({
+          type: 'SET_USER',
+          payload: user.current
+        })
+
+        callback()
+      })
+      .catch(err => err)
+  }
+}
