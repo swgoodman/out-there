@@ -71,3 +71,23 @@ export const fetchUser = () => {
       .catch(err => err)
   }
 }
+
+export const deleteUser = id => {
+  let data = {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/users/${ id }`, data)
+      .then(response => response.json())
+      .then(user => dispatch({
+        type: 'DELETE_TODO',
+        payload: user
+      }))
+      .catch(err => err)
+  }
+}
