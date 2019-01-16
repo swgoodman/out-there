@@ -1,24 +1,23 @@
 const baseUrl = 'http://localhost:3000/api/v1'
 
-//Idea list
-export const FETCH_IDEAS = 'FETCH_IDEAS';
-export const FETCH_IDEAS_SUCCESS = 'FETCH_IDEAS_SUCCESS';
-export const FETCH_IDEAS_FAILURE = 'FETCH_IDEAS_FAILURE';
-export const RESET_IDEAS = 'RESET_IDEAS';
+export const fetchIdeas = () => {
+  let data = {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }
 
-
-export function fetchIdeas() {
-  // FETCH REQUEST
-  const request = ({
-    method: 'get',
-    url: `${'localhost:3000'}/ideas`,
-    headers: []
-  });
-
-  return {
-    type: FETCH_IDEAS,
-    payload: request
-  };
+  return dispatch => {
+    fetch(`${ baseUrl }/ideas`, data)
+      .then(response => response.json())
+      .then(todos => dispatch({
+          type: 'FETCH_IDEAS',
+          payload: ideas
+      }))
+      .catch(err => err)
+  }
 }
 
 export function fetchIdeasSuccess(IDEAS) {
