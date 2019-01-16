@@ -25,8 +25,7 @@ export const createComment = (comment, ideaId) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': sessionStorage.jwt
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({ comment: comment })
   }
