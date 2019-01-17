@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-import manageIdeas from './manageIdeas.js';
+import manageUsers from './manageUsers';
+import manageIdeas from './manageIdeas';
 
 const rootReducer = combineReducers({
   user: userReducer,
