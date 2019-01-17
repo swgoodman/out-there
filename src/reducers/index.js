@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-import manageUsers from './manageUsers';
+import manageUser from './manageUser';
 import manageIdeas from './manageIdeas';
 
 const rootReducer = combineReducers({
-  user: userReducer,
+  user: manageUser,
   ideas: manageIdeas
 });
 

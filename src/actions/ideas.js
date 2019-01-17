@@ -13,7 +13,7 @@ export const fetchIdeas = () => {
   return dispatch => {
     fetch(`${ baseUrl }/ideas`, data)
       .then(response => response.json())
-      .then(todos => dispatch({
+      .then(ideas => dispatch({
           type: 'FETCH_IDEAS',
           payload: ideas
       }))
@@ -35,7 +35,7 @@ export const createIdea = idea => {
   return dispatch => {
     fetch(`${ baseUrl }/ideas`, data)
       .then(response => response.json())
-      .then(todo => dispatch({
+      .then(idea => dispatch({
         type: 'CREATE_IDEA',
         payload: idea
       }))
@@ -56,7 +56,7 @@ export const deleteIdea = id => {
   return dispatch => {
     fetch(`${ baseUrl }/ideas/${ id }`, data)
       .then(response => response.json())
-      .then(todo => dispatch({
+      .then(idea => dispatch({
         type: 'DELETE_IDEA',
         payload: idea
       }))

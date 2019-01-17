@@ -13,7 +13,7 @@ export const fetchComments = idea => {
   return dispatch => {
     fetch(`${ baseUrl }/ideas/${ idea.id }/comments`, data)
       .then(response => response.json())
-      .then(ideas => dispatch({
+      .then(comments => dispatch({
         type: 'FETCH_COMMENTS',
         payload: comments
       }))
@@ -43,7 +43,7 @@ export const createComment = (comment, ideaId) => {
   }
 }
 
-export const deleteComment = (id, todoId) => {
+export const deleteComment = (id, ideaId) => {
   let data = {
     method: 'DELETE',
     headers: {
@@ -56,7 +56,7 @@ export const deleteComment = (id, todoId) => {
   return dispatch => {
     fetch(`${ baseUrl }/ideas/${ ideaId }/comments/${ id }`, data)
       .then(response => response.json())
-      .then(subTodo => dispatch({
+      .then(comment => dispatch({
         type: 'DELETE_COMMENT',
         payload: comment
       }))
