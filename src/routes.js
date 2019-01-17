@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
 
-import Login from './containers/Login'
-import Signup from './containers/Signup'
-import IdeaList from './containers/IdeaList'
+import Login from './containers/login'
+import Signup from './containers/signup'
+import IdeaList from './containers/ideaList'
 
 export default (
   <BrowserRouter>

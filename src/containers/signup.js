@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 
-import { signupUser } from '../actions/userActions'
+import { signupUser } from '../actions/users'
 
 class Signup extends Component {
   constructor() {
