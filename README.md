@@ -2,7 +2,7 @@
 
 ### Description
 
-By nature, teams stress the little things. Deadlines, project details, and comms. Out There is a place to think about the "big picture," collectively. Toss out your craziest ideas and goals for the team. Kick off discussions and get feedback. Out There is home of the 'so crazy that just might work.'
+By nature, teams stress the little things. Deadlines, project details, and comms. Out There is a place to think about the "big picture," collectively. Toss out your craziest ideas and goals for the team. Kick off discussions and get feedback. Out There is home of the 'so crazy that just might work.' Building with React, Redux, and a Rails back end.
 
 ### Installation Guide
 
