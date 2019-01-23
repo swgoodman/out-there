@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001/api/v1'
+const baseUrl = 'http://localhost:3005/api/v1'
 
 export const loginUser = (user, callback) => {
   let data = {
@@ -36,6 +36,7 @@ export const signupUser = (user, callback) => {
     },
     body: JSON.stringify({ user })
   }
+  console.log(data)
 
   return dispatch => {
     fetch(`${ baseUrl }/signup`, data)

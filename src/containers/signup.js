@@ -32,6 +32,7 @@ class Signup extends Component {
     e.preventDefault()
 
     const user = this.state
+    console.log(user)
     this.props.signupUser(user, () => this.props.history.push('/'))
   }
 

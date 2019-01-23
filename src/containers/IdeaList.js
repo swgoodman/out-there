@@ -44,7 +44,7 @@ class IdeaList extends Component {
           </header>
 
           <div className="grid-blocks">
-            <div>{ user.firstname } { user.lastname }</div>
+            <div>{ user.username }</div>
             <IdeaInput/>
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.comment }/>)}
           </div>
