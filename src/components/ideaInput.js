@@ -14,8 +14,8 @@ class IdeaInput extends Component {
         body: ""
       };
 
-      this.onChange = this.handleChange.bind(this)
-      this.onSubmit = this.handleSubmit.bind(this)
+      this.handleChange = this.handleChange.bind(this)
+      this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(e) {
@@ -28,7 +28,7 @@ class IdeaInput extends Component {
 
     handleSubmit(e) {
       e.preventDefault()
-
+      
       this.props.createIdea(this.state)
       this.setState({
         header: "",
@@ -40,7 +40,6 @@ class IdeaInput extends Component {
       const { header, body } = this.state
 
       return (
-        <div>
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
@@ -57,7 +56,6 @@ class IdeaInput extends Component {
                />
             <input type="submit" />
           </form>
-        </div>
       );
     }
 
