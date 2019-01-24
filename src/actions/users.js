@@ -62,7 +62,7 @@ export const fetchUser = () => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     }
-
+// send session user id, and ask for user
   }
 
   return dispatch => {
