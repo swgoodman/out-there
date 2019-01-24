@@ -8,7 +8,7 @@ import IdeaList from './containers/ideaList'
 export default (
   <BrowserRouter>
     <Switch id='routes'>
-      <Route exact path='/' render={ () => <IdeaList /> } />/>
+      <Route exact path='/' render={ () => loggedIn() ? <IdeaList/> : <Redirect to="/login"/> }/>
       <Route path='/signup' component={ () => loggedIn() ? <Redirect to="/"/> : <Signup/> }/>
       <Route path='/login' component={ () => loggedIn() ? <Redirect to="/"/> : <Login/> }/>
       <Route path='/logout' component={ () => logout() }/>
@@ -17,10 +17,10 @@ export default (
   </BrowserRouter>
 )
 
-const loggedIn = () => !!sessionStorage['jwt']
+const loggedIn = () => !!sessionStorage.getItem('user_id')
 
 const logout = () => {
-  if(sessionStorage['jwt']) sessionStorage.removeItem('jwt')
+  if(sessionStorage['user_id']) sessionStorage.removeItem('user_id')
 
   return <Redirect to="/login"/>
 }

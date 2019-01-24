@@ -2,10 +2,11 @@ const initialState = {
   current: {}
 }
 
-export default function userReducer(state = initialState, action) {
+export default function manageUser(state = initialState, action) {
   switch(action.type) {
     case 'SET_USER':
-      return { ...state, current: action.payload }
+      // debugger
+      return { ...state, current: action.payload.current }
     default: return state
   }
 }

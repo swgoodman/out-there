@@ -14,6 +14,7 @@ import IdeaInput from '../components/ideaInput.js'
 
 class IdeaList extends Component {
   componentWillMount() {
+    console.log("Hellow")
     this.props.fetchUser()
     this.props.fetchIdeas()
   }
@@ -30,7 +31,7 @@ class IdeaList extends Component {
 
       const {fetchingData} = this.state
       const { user, ideas } = this.props
-
+      
       return (
         <div className="App">
           <header className="App-header">
@@ -45,8 +46,7 @@ class IdeaList extends Component {
 
           <div className="grid-blocks">
             <div>{ user.username }</div>
-            <IdeaInput/>
-            { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.comment }/>)}
+
           </div>
 
         </div>
@@ -55,6 +55,7 @@ class IdeaList extends Component {
 }
 
 const mapStateToProps = state => {
+  debugger
   return {
     user: state.user.current,
     ideas: state.ideas.all

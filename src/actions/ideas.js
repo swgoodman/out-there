@@ -5,8 +5,7 @@ export const fetchIdeas = () => {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': sessionStorage.jwt
+      'Content-Type': 'application/json'
     }
   }
 
@@ -26,8 +25,7 @@ export const createIdea = idea => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': sessionStorage.jwt
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({ idea })
   }
@@ -48,8 +46,7 @@ export const deleteIdea = id => {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': sessionStorage.jwt
+      'Content-Type': 'application/json'
     }
   }
 
