@@ -17,10 +17,10 @@ export default (
   </BrowserRouter>
 )
 
-const loggedIn = () => !!sessionStorage.getItem('user_id')
+const loggedIn = () => !!sessionStorage['jwt']
 
 const logout = () => {
-  if(sessionStorage['user_id']) sessionStorage.removeItem('user_id')
+  if(sessionStorage['jwt']) sessionStorage.removeItem('jwt')
 
   return <Redirect to="/login"/>
 }

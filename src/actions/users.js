@@ -7,7 +7,6 @@ export const loginUser = (user, callback) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-
     body: JSON.stringify({ user })
   }
 
@@ -15,17 +14,16 @@ export const loginUser = (user, callback) => {
     fetch(`${ baseUrl }/login`, data)
       .then(response => response.json())
       .then(user => {
-        sessionStorage.setItem('user_id', user.id)
+        sessionStorage.setItem('jwt', user.jwt)
         dispatch({
           type: 'SET_USER',
-          payload: user
+          payload: user.current
         })
 
         callback()
       })
       .catch(err => err)
   }
-  console.log(sessionStorage)
 }
 
 export const signupUser = (user, callback) => {
@@ -37,13 +35,13 @@ export const signupUser = (user, callback) => {
     },
     body: JSON.stringify({ user })
   }
-  console.log(data)
 
   return dispatch => {
     fetch(`${ baseUrl }/signup`, data)
       .then(response => response.json())
       .then(user => {
-        sessionStorage.setItem('user_id', user.id)
+        sessionStorage.setItem('jwt', user.jwt)
+
         dispatch({
           type: 'SET_USER',
           payload: user.current
@@ -60,16 +58,15 @@ export const fetchUser = () => {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     }
-// send session user id, and ask for user
   }
 
   return dispatch => {
     fetch(`${ baseUrl }/user`, data)
       .then(response => response.json())
       .then(user => {
-        debugger
         dispatch({
           type: 'SET_USER',
           payload: user
