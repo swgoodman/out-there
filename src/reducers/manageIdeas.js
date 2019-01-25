@@ -11,6 +11,7 @@ export default function todosReducer(state = initialState, action) {
     case 'FETCH_IDEAS':
       return { ...state, all: action.payload }
     case 'CREATE_IDEA':
+    debugger
       return { ...state, all: [...state.all, action.payload] }
     case 'DELETE_IDEA':
       return { ...state, all: state.all.filter(idea => idea.id !== action.payload.id) }

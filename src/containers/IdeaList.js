@@ -30,6 +30,7 @@ class IdeaList extends Component {
 
       const {fetchingData} = this.state
       const { user, ideas } = this.props
+      
       return (
         <div className="App">
           <header className="App-header">
@@ -44,7 +45,8 @@ class IdeaList extends Component {
 
           <div className="grid-blocks">
             <div>{ user.username }</div>
-
+            <IdeaInput/>
+            { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
           </div>
 
         </div>
