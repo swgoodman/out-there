@@ -34,7 +34,7 @@ export const createIdea = idea => {
 
   return dispatch => {
     fetch(`${ baseUrl }/ideas`, data)
-      .then(response => console.log(response.json()))
+      .then(response => response.json())
       .then(idea => dispatch({
         type: 'CREATE_IDEA',
         payload: idea
