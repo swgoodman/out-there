@@ -11,11 +11,13 @@ import { deleteComment } from '../actions/comments'
 
 import Idea from '../components/idea.js'
 import IdeaInput from '../components/ideaInput.js'
+import Board from '../components/board.js'
 
 class IdeaList extends Component {
   componentWillMount() {
     this.props.fetchUser()
     this.props.fetchIdeas()
+    this.props.fetchBoards()
   }
 
   constructor() {
@@ -29,7 +31,7 @@ class IdeaList extends Component {
     render() {
 
       const {fetchingData} = this.state
-      const { user, ideas } = this.props
+      const { user, ideas, boards } = this.props
       return (
         <div className="App">
           <header className="App-header">
@@ -43,7 +45,11 @@ class IdeaList extends Component {
           </header>
 
           <div className="grid-blocks">
-            <div>{ user.username }</div>
+            <div>
+            { user.username }
+            { boards.map(board => <Board key={ board.id } board={ board }/>) }
+            </div>
+
             <IdeaInput/>
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
           </div>
@@ -63,6 +69,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchUser,
   fetchIdeas,
+  fetchBoards,
   deleteIdea,
   deleteComment
 }, dispatch)

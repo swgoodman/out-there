@@ -6,9 +6,9 @@ const initialState =  {
   all: []
 }
 
-export default function manageIdeas(state = initialState, action) {
+export default function manageBoards(state = initialState, action) {
   switch(action.type) {
-    case 'FETCH_IDEAS':
+    case 'FETCH_BOARDS':
       return { ...state, all: action.payload }
     case 'CREATE_IDEA':
       return { ...state, all: [...state.all, action.payload] }
