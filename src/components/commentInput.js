@@ -11,7 +11,6 @@ class CommentInput extends Component {
     super();
 
     this.state = {
-      header: '',
       body: ''
     };
   }
@@ -24,9 +23,10 @@ class CommentInput extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addComment(this.state)
+
+    const { ideaId } = this.props
+    this.props.createComment(this.state, ideaId)
     this.setState({
-      header: '',
       body: ''
     });
   }
@@ -50,4 +50,8 @@ class CommentInput extends Component {
 
 }
 
-export default CommentInput;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  createComment
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(CommentInput)

@@ -1,11 +1,12 @@
-const baseUrl = 'http://localhost:3001/api/v1'
+const baseUrl = 'http://localhost:3005/api/v1'
 
 export const fetchComments = idea => {
   let data = {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     }
   }
 
@@ -25,15 +26,16 @@ export const createComment = (comment, ideaId) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     },
     body: JSON.stringify({ comment: comment })
   }
-
+  
   return dispatch => {
     fetch(`${ baseUrl }/ideas/${ ideaId }/comments`, data)
       .then(response => response.json())
-      .then(subTodo => dispatch({
+      .then(comment => dispatch({
         type: 'CREATE_COMMENT',
         payload: comment
       }))
@@ -46,7 +48,8 @@ export const deleteComment = (id, ideaId) => {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
     }
   }
 
