@@ -6,6 +6,7 @@ import logo from '../logo.svg';
 import '../css/App.css';
 
 import { fetchUser } from '../actions/users'
+import { fetchBoards } from '../actions/boards'
 import { fetchIdeas, deleteIdea } from '../actions/ideas'
 import { deleteComment } from '../actions/comments'
 
@@ -46,8 +47,7 @@ class IdeaList extends Component {
 
           <div className="grid-blocks">
             <div>
-            { user.username }
-            { boards.map(board => <Board key={ board.id } board={ board }/>) }
+              { user.username }
             </div>
 
             <IdeaInput/>
