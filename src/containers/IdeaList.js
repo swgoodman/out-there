@@ -33,6 +33,7 @@ class IdeaList extends Component {
 
       const {fetchingData} = this.state
       const { user, ideas, boards } = this.props
+      debugger
       return (
         <div className="App">
           <header className="App-header">
