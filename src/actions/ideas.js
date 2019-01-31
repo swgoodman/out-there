@@ -9,7 +9,7 @@ export const fetchIdeas = () => {
       'Authorization': sessionStorage.jwt
     }
   }
-
+  
   return dispatch => {
     fetch(`${ baseUrl }/ideas`, data)
       .then(response => response.json())

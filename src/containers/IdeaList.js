@@ -6,19 +6,16 @@ import logo from '../logo.svg';
 import '../css/App.css';
 
 import { fetchUser } from '../actions/users'
-import { fetchBoards } from '../actions/boards'
 import { fetchIdeas, deleteIdea } from '../actions/ideas'
 import { deleteComment } from '../actions/comments'
 
 import Idea from '../components/idea.js'
 import IdeaInput from '../components/ideaInput.js'
-import Board from '../components/board.js'
 
 class IdeaList extends Component {
   componentWillMount() {
     this.props.fetchUser()
     this.props.fetchIdeas()
-    this.props.fetchBoards()
   }
 
   constructor() {
@@ -32,8 +29,8 @@ class IdeaList extends Component {
     render() {
 
       const {fetchingData} = this.state
-      const { user, ideas, boards } = this.props
-      debugger
+      const { user, ideas } = this.props
+
       return (
         <div className="App">
           <header className="App-header">
@@ -70,7 +67,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchUser,
   fetchIdeas,
-  fetchBoards,
   deleteIdea,
   deleteComment
 }, dispatch)

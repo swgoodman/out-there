@@ -13,9 +13,7 @@ class Signup extends Component {
       username: '',
       email: '',
       password: '',
-      password_confirmation: '',
-      existing_board_name: '',
-      new_board_name: ''
+      password_confirmation: ''
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -32,9 +30,7 @@ class Signup extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-
     const user = this.state
-    console.log(user)
     this.props.signupUser(user, () => this.props.history.push('/'))
   }
 
@@ -49,8 +45,6 @@ class Signup extends Component {
           <input name="email" placeholder="Email" value={ email } onChange={ this.onChange }/><br/>
           <input type='password' name="password" placeholder="Password" value={ password } onChange={ this.onChange }/><br/>
           <input type='password' name="password_confirmation" placeholder="Password Confirmation" value={ password_confirmation } onChange={ this.onChange }/><br/>
-          <input name="existing_board_name" placeholder="Existing Board?" value={ existing_board } onChange={ this.onChange }/><br/>
-          <input name="new_board_name" placeholder="New Board?" value={ new_board } onChange={ this.onChange }/><br/>
           <button type="submit">Signup</button>
         </form>
         <Link to='/login'>Log In</Link>

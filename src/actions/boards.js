@@ -21,7 +21,7 @@ export const fetchBoards = () => {
   }
 }
 
-export const createIdea = board => {
+export const createBoard = board => {
   let data = {
     method: 'POST',
     headers: {
@@ -29,9 +29,9 @@ export const createIdea = board => {
       'Content-Type': 'application/json',
       'Authorization': sessionStorage.jwt
     },
-    body: JSON.stringify({ board })
+    body: JSON.stringify({ name: board })
   }
-
+  
   return dispatch => {
     fetch(`${ baseUrl }/boards`, data)
       .then(response => response.json())
