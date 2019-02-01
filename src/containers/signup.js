@@ -4,7 +4,66 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 
 import { signupUser } from '../actions/users'
-import '../css/App.css'
+import styled from 'styled-components'
+
+const SignUpBody = styled.div`
+  justify-contents: center;
+  padding-top: 60px;
+`
+
+const StyledSignUp = styled.div`
+  background-color: white;
+  width: 180px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+`
+const StyledInput = styled.input`
+  border: none;
+  border-bottom: 1px solid black;
+  background: transparent;
+  font-style: italic;
+  font-size: 16px;
+  width: 180px;
+  padding-bottom: 8px;
+  :focus {
+    border: none;
+  }
+`
+const StyledLabel = styled.label`
+  margin-top: 10px;
+  display: block;
+`
+
+const StyledButton = styled.button`
+  border: none;
+  font-size: 30px;
+  color: black;
+  background-color: #FEA680;
+  font-style: italic;
+  width: 180px;
+  float: left;
+  margin-top: 10px;
+  padding: 10px;
+  margin-right: 40px;
+  :hover {
+    cursor: pointer;
+  }
+`
+
+const StyledLink = styled.a`
+  border: none;
+  color: black;
+  font-size: 16px;
+  background-color: #01ABAA;
+  font-style: italic;
+  width: 180px;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  text-align: center;
+`
 
 class Signup extends Component {
   constructor() {
@@ -40,18 +99,19 @@ class Signup extends Component {
     const { username, email, password, password_confirmation, existing_board } = this.state
 
     return (
-      <>
-        <h1>Sign Up</h1>
+      <SignUpBody>
+      <StyledSignUp>
         <form onSubmit={ this.onSubmit }>
-          <input name="username" placeholder="Username" value={ username } onChange={ this.onChange }/><br/>
-          <input name="email" placeholder="Email" value={ email } onChange={ this.onChange }/><br/>
-          <input type='password' name="password" placeholder="Password" value={ password } onChange={ this.onChange }/><br/>
-          <input type='password' name="password_confirmation" placeholder="Password Confirmation" value={ password_confirmation } onChange={ this.onChange }/><br/>
-          <input type='existing_board' name="existing_board" placeholder="Join a board? Leave blank if you want a fresh start." value={ existing_board } onChange={ this.onChange }/><br/>
-          <button type="submit">Signup</button>
+          <StyledInput name="username" placeholder="Username" value={ username } onChange={ this.onChange }/><br/>
+          <StyledInput name="email" placeholder="Email" value={ email } onChange={ this.onChange }/><br/>
+          <StyledInput type='password' name="password" placeholder="Password" value={ password } onChange={ this.onChange }/><br/>
+          <StyledInput type='password' name="password_confirmation" placeholder="Password Confirmation" value={ password_confirmation } onChange={ this.onChange }/><br/>
+          <StyledInput type='existing_board' name="existing_board" placeholder="Join a board? Leave blank if you want a fresh start." value={ existing_board } onChange={ this.onChange }/><br/>
+          <StyledButton type="submit">Signup</StyledButton>
         </form>
-        <Link to='/login'>Log In</Link>
-      </>
+        <StyledLink href='/login'>Login</StyledLink>
+        </StyledSignUp>
+      </SignUpBody>
     )
   }
 }

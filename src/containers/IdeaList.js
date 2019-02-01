@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
 
 import logo from '../logo.svg';
 import '../css/App.css';
@@ -32,7 +31,7 @@ class IdeaList extends Component {
 
             <IdeaInput/>
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
-            <Link to='/logout'>Log Out</Link>
+            <a to='/logout'>Log Out</a>
           </div>
       );
     }
