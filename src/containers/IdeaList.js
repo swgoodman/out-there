@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import logo from '../logo.svg';
-import '../css/App.css';
+import styled from 'styled-components'
 
 import { fetchUser } from '../actions/users'
 import { fetchIdeas, deleteIdea } from '../actions/ideas'
@@ -11,6 +10,19 @@ import { deleteComment } from '../actions/comments'
 
 import Idea from '../components/idea.js'
 import IdeaInput from '../components/ideaInput.js'
+
+const UserInfo = styled.div`
+  color: white;
+  font-size: 20px;
+  padding-left: 2.5em;
+`
+
+const StyledLogOut = styled.a`
+  font-style: italic;
+  color: white;
+  padding-left: 10px;
+  font-size: 14px;
+`
 
 class IdeaList extends Component {
   componentWillMount() {
@@ -24,10 +36,11 @@ class IdeaList extends Component {
 
       return (
           <div className="grid-blocks">
-            <div>
+            <UserInfo>
               { user.username }
               { user.board_id }
-            </div>
+              <StyledLogOut href='/logout'>Logout</StyledLogOut>
+            </UserInfo>
 
             <IdeaInput/>
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }

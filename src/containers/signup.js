@@ -102,11 +102,11 @@ class Signup extends Component {
       <SignUpBody>
       <StyledSignUp>
         <form onSubmit={ this.onSubmit }>
-          <StyledInput name="username" placeholder="Username" value={ username } onChange={ this.onChange }/><br/>
-          <StyledInput name="email" placeholder="Email" value={ email } onChange={ this.onChange }/><br/>
-          <StyledInput type='password' name="password" placeholder="Password" value={ password } onChange={ this.onChange }/><br/>
-          <StyledInput type='password' name="password_confirmation" placeholder="Password Confirmation" value={ password_confirmation } onChange={ this.onChange }/><br/>
-          <StyledInput type='existing_board' name="existing_board" placeholder="Join a board? Leave blank if you want a fresh start." value={ existing_board } onChange={ this.onChange }/><br/>
+          <StyledInput name="username" placeholder="username" value={ username } onChange={ this.onChange }/><br/>
+          <StyledInput name="email" placeholder="email" value={ email } onChange={ this.onChange }/><br/>
+          <StyledInput type='password' name="password" placeholder="password" value={ password } onChange={ this.onChange }/><br/>
+          <StyledInput type='password' name="password_confirmation" placeholder="confirm password" value={ password_confirmation } onChange={ this.onChange }/><br/>
+          <StyledInput type='existing_board' name="existing_board" placeholder="join a board?" value={ existing_board } onChange={ this.onChange }/><br/>
           <StyledButton type="submit">Signup</StyledButton>
         </form>
         <StyledLink href='/login'>Login</StyledLink>
