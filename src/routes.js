@@ -7,6 +7,7 @@ import IdeaList from './containers/ideaList'
 
 import styled, { keyframes } from 'styled-components'
 
+
 const AppWrapper = styled.div`
   text-align: center;
 `
@@ -32,7 +33,6 @@ export default (
     <AppHeader>
       <AppTitle>Out There</AppTitle>
     </AppHeader>
-
     <BrowserRouter>
       <Switch id='routes'>
         <Route exact path='/' render={ () => loggedIn() ? <IdeaList/> : <Redirect to="/login"/> }/>
