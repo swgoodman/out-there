@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 
 import { loginUser } from '../actions/users'
+import '../css/App.css'
+import styled from 'styled-components'
 
 class Login extends Component {
   constructor() {
@@ -37,7 +39,7 @@ class Login extends Component {
     const { username, password } = this.state
 
     return (
-      <>
+      <div>
         <h1>Log In</h1>
         <form onSubmit={ this.onSubmit }>
           <input name="username" placeholder="Username" value={ username } onChange={ this.onChange }/><br/>
@@ -45,7 +47,7 @@ class Login extends Component {
           <button type="submit">Login</button>
         </form>
         <Link to='/signup'>Sign Up</Link>
-      </>
+      </div>
     )
   }
 }

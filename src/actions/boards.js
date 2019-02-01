@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3005/api/v1'
 
-export const fetchBoards = () => {
+export const fetchBoard = () => {
   let data = {
     method: 'GET',
     headers: {
@@ -31,7 +31,7 @@ export const createBoard = board => {
     },
     body: JSON.stringify({ name: board })
   }
-  
+
   return dispatch => {
     fetch(`${ baseUrl }/boards`, data)
       .then(response => response.json())

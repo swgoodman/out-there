@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 
 import { signupUser } from '../actions/users'
+import '../css/App.css'
 
 class Signup extends Component {
   constructor() {
@@ -13,7 +14,8 @@ class Signup extends Component {
       username: '',
       email: '',
       password: '',
-      password_confirmation: ''
+      password_confirmation: '',
+      existing_board: ''
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -35,7 +37,7 @@ class Signup extends Component {
   }
 
   render() {
-    const { username, email, password, password_confirmation } = this.state
+    const { username, email, password, password_confirmation, existing_board } = this.state
 
     return (
       <>
@@ -45,6 +47,7 @@ class Signup extends Component {
           <input name="email" placeholder="Email" value={ email } onChange={ this.onChange }/><br/>
           <input type='password' name="password" placeholder="Password" value={ password } onChange={ this.onChange }/><br/>
           <input type='password' name="password_confirmation" placeholder="Password Confirmation" value={ password_confirmation } onChange={ this.onChange }/><br/>
+          <input type='existing_board' name="existing_board" placeholder="Join a board? Leave blank if you want a fresh start." value={ existing_board } onChange={ this.onChange }/><br/>
           <button type="submit">Signup</button>
         </form>
         <Link to='/login'>Log In</Link>
