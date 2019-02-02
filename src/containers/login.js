@@ -32,10 +32,6 @@ const StyledInput = styled.input`
     border: none;
   }
 `
-const StyledLabel = styled.label`
-  margin-top: 10px;
-  display: block;
-`
 
 const StyledButton = styled.button`
   border: none;

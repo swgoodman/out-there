@@ -44,7 +44,6 @@ class IdeaList extends Component {
 
             <IdeaInput/>
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
-            <a to='/logout'>Log Out</a>
           </div>
       );
     }
