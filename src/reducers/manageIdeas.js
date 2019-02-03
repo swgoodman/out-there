@@ -9,7 +9,6 @@ const initialState =  {
 export default function manageIdeas(state = initialState, action) {
   switch(action.type) {
     case 'FETCH_IDEAS':
-    debugger
       return { ...state, all: action.payload }
     case 'CREATE_IDEA':
       return { ...state, all: [...state.all, action.payload] }

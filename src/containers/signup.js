@@ -90,7 +90,7 @@ class Signup extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-    
+
     const user = this.state
     this.props.signupUser(user, () => this.props.history.push('/'))
   }
@@ -106,7 +106,7 @@ class Signup extends Component {
           <StyledInput name="email" placeholder="email" value={ email } onChange={ this.onChange }/><br/>
           <StyledInput type='password' name="password" placeholder="password" value={ password } onChange={ this.onChange }/><br/>
           <StyledInput type='password' name="password_confirmation" placeholder="confirm password" value={ password_confirmation } onChange={ this.onChange }/><br/>
-          <StyledButton type="submit">Signup</StyledButton>
+          <button type="submit">Signup</button>
         </form>
         <StyledLink href='/login'>Login</StyledLink>
         </StyledSignUp>

@@ -33,7 +33,7 @@ class IdeaList extends Component {
     render() {
 
       const { user, ideas } = this.props
-
+      debugger
       return (
           <div className="grid-blocks">
             <UserInfo>
