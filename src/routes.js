@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
 
-import Login from './containers/login'
+import Login from './containers/Login'
 import Signup from './containers/signup'
 import IdeaList from './containers/ideaList'
 
@@ -84,7 +84,9 @@ export default (
           <Route path='/signup' component={ () => loggedIn() ? <Redirect to="/"/> : <Signup/> }/>
           <Route path='/login' component={ () => loggedIn() ? <Redirect to="/"/> : <Login/> }/>
           <Route path='/logout' component={ () => logout() }/>
-          <Route path='/ideas' component={ () =>  loggedIn() ? <IdeaList/> : <Redirect to="/login"/> }/>
+          <Route path='/ideas/:title' component={ () =>  loggedIn() ? <IdeaList/> : <Redirect to="/login"/> }/>
+          <Route path='/new-board' component={ () => <div /> }/>
+          <Route path='/dashboard' component={ () => <div /> }/>
         </Switch>
       </BrowserRouter>
   </AppWrapper>

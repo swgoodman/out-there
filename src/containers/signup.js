@@ -73,8 +73,7 @@ class Signup extends Component {
       username: '',
       email: '',
       password: '',
-      password_confirmation: '',
-      existing_board: ''
+      password_confirmation: ''
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -91,12 +90,13 @@ class Signup extends Component {
 
   onSubmit(e) {
     e.preventDefault()
+    
     const user = this.state
     this.props.signupUser(user, () => this.props.history.push('/'))
   }
 
   render() {
-    const { username, email, password, password_confirmation, existing_board } = this.state
+    const { username, email, password, password_confirmation } = this.state
 
     return (
       <SignUpBody>
@@ -106,7 +106,6 @@ class Signup extends Component {
           <StyledInput name="email" placeholder="email" value={ email } onChange={ this.onChange }/><br/>
           <StyledInput type='password' name="password" placeholder="password" value={ password } onChange={ this.onChange }/><br/>
           <StyledInput type='password' name="password_confirmation" placeholder="confirm password" value={ password_confirmation } onChange={ this.onChange }/><br/>
-          <StyledInput type='existing_board' name="existing_board" placeholder="join a board?" value={ existing_board } onChange={ this.onChange }/><br/>
           <StyledButton type="submit">Signup</StyledButton>
         </form>
         <StyledLink href='/login'>Login</StyledLink>
