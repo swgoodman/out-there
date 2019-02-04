@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 import { fetchBoard } from '../actions/boards'
+import NewBoard from '../components/NewBoard'
+import ExistingBoard from '../components/ExistingBoard'
 
 
 class BoardList extends Component {

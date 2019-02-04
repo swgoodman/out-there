@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
 
 import Login from './containers/Login'
 import Signup from './containers/signup'
-import IdeaList from './containers/ideaList'
+import IdeaList from './containers/IdeaList'
 import Dashboard from './containers/Dashboard'
 
 import styled, { keyframes } from 'styled-components'
@@ -21,12 +21,12 @@ const AppHeader = styled.div`
   font-size: 25px;
   text-align: left;
   margin-top: 0;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid black;
 `
 
 const AppTitle = styled.h1`
   font-weight: 700;
-  color: white;
+  color: black;
   margin-top: 0;
   padding-top: 10px;
   padding-left: 38px;
@@ -81,7 +81,8 @@ export default (
 
       <BrowserRouter>
         <Switch id='routes'>
-          <Route exact path='/' render={ () => loggedIn() ? <IdeaList/> : <Redirect to="/login"/> }/>
+          <Route exact path='/' render={ () => loggedIn() ? <Redirect to="/dashboard"/> : <Redirect to="/login"/> }/>
+          <Route exact path='/dashboard' render={ () => loggedIn() ? <Dashboard/> : <Redirect to="/login"/> }/>
           <Route path='/signup' component={ () => loggedIn() ? <Redirect to="/"/> : <Signup/> }/>
           <Route path='/login' component={ () => loggedIn() ? <Redirect to="/"/> : <Login/> }/>
           <Route path='/logout' component={ () => logout() }/>
