@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3005/api/v1'
 
-export const fetchBoard = () => {
+export const fetchBoards = () => {
   let data = {
     method: 'GET',
     headers: {
@@ -9,7 +9,7 @@ export const fetchBoard = () => {
       'Authorization': sessionStorage.jwt
     }
   }
-
+  
   return dispatch => {
     fetch(`${ baseUrl }/boards`, data)
       .then(response => response.json())

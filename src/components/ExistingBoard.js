@@ -6,7 +6,7 @@ import { withRouter} from 'react-router-dom'
 import { createBoard } from '../actions/boards'
 import styled from 'styled-components'
 
-class ExistingBoard extends Component {
+class NewBoard extends Component {
   constructor() {
     super()
 
@@ -30,7 +30,7 @@ class ExistingBoard extends Component {
     e.preventDefault()
 
     const user = this.state
-    debugger
+
     this.props.createBoard(user, () => this.props.history.push('/'))
   }
 
@@ -41,7 +41,7 @@ class ExistingBoard extends Component {
       <div>
         <form onSubmit={ this.onSubmit }>
           <input name="name" placeholder="board name" value={ name } onChange={ this.onChange }/><br/>
-          <input type="submit">Login</input>
+          <button type="submit">Join</button>
         </form>
       </div>
     )
@@ -52,4 +52,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   createBoard
 }, dispatch)
 
-export default withRouter(connect(null, mapDispatchToProps)(ExistingBoard))
+export default withRouter(connect(null, mapDispatchToProps)(NewBoard))

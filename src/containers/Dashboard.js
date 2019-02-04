@@ -24,7 +24,7 @@ class Dashboard extends Component {
             { user.username }
             { user.board_id }
             <a href='/logout'>Logout</a>
-            <BoardList/>
+            <BoardList props={ user }/>
             <IdeaList props={ user }/>
           </div>
       );

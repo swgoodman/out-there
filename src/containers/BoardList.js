@@ -4,22 +4,27 @@ import { connect } from 'react-redux'
 
 import styled from 'styled-components'
 
-import { fetchBoard } from '../actions/boards'
+import { fetchBoards } from '../actions/boards'
 import NewBoard from '../components/NewBoard'
 import ExistingBoard from '../components/ExistingBoard'
 
 
 class BoardList extends Component {
   componentWillMount() {
+    this.props.fetchBoards()
   }
 
     render() {
 
-      const { board } = this.props
+      const { boards } = this.props
 
       return (
           <div>
+            <ul>
+              { boards.map(board => <li>{board.name}</li>)}
+            </ul>
             <NewBoard/>
+            <ExistingBoard/>
           </div>
       );
     }
@@ -27,12 +32,12 @@ class BoardList extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user.current,
-    ideas: state.ideas.all
+    boards: state.boards.all
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchBoards
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoardList)

@@ -30,7 +30,7 @@ class NewBoard extends Component {
     e.preventDefault()
 
     const user = this.state
-    debugger
+    
     this.props.createBoard(user, () => this.props.history.push('/'))
   }
 
