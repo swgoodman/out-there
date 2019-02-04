@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
 import Login from './containers/Login'
 import Signup from './containers/signup'
 import IdeaList from './containers/ideaList'
+import Dashboard from './containers/Dashboard'
 
 import styled, { keyframes } from 'styled-components'
 

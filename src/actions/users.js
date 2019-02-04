@@ -89,7 +89,7 @@ export const deleteUser = id => {
     fetch(`${ baseUrl }/users/${ id }`, data)
       .then(response => response.json())
       .then(user => dispatch({
-        type: 'DELETE_TODO',
+        type: 'DELETE_USER',
         payload: user
       }))
       .catch(err => err)

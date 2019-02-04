@@ -9,7 +9,7 @@ import { fetchIdeas, deleteIdea } from '../actions/ideas'
 import { deleteComment } from '../actions/comments'
 
 import Idea from '../components/idea.js'
-import IdeaInput from '../components/ideaInput.js'
+import IdeaInput from '../components/IdeaInput.js'
 
 const UserInfo = styled.div`
   color: white;
@@ -33,7 +33,7 @@ class IdeaList extends Component {
     render() {
 
       const { user, ideas } = this.props
-      debugger
+
       return (
           <div className="grid-blocks">
             <UserInfo>
