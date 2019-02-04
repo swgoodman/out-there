@@ -23,10 +23,9 @@ class Dashboard extends Component {
           <div>
             { user.username }
             { user.board_id }
-            <BoardList/>
-            <IdeaInput/>
-            <IdeaList/>
             <a href='/logout'>Logout</a>
+            <BoardList/>
+            <IdeaList props={ user }/>
           </div>
       );
     }

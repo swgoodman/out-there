@@ -41,7 +41,7 @@ class NewBoard extends Component {
       <div>
         <form onSubmit={ this.onSubmit }>
           <input name="name" placeholder="board name" value={ name } onChange={ this.onChange }/><br/>
-          <input type="submit">Login</input>
+          <button type="submit">Create</button>
         </form>
       </div>
     )

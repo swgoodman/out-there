@@ -87,7 +87,6 @@ class Login extends Component {
     e.preventDefault()
 
     const user = this.state
-    debugger
     this.props.loginUser(user, () => this.props.history.push('/'))
   }
 

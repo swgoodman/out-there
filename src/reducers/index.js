@@ -6,7 +6,8 @@ import manageBoards from './manageBoards';
 
 const rootReducer = combineReducers({
   user: manageUser,
-  ideas: manageIdeas
+  ideas: manageIdeas,
+  boards: manageBoards
 });
 
 export default rootReducer;

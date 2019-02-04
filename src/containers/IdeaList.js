@@ -26,7 +26,6 @@ const StyledLogOut = styled.a`
 
 class IdeaList extends Component {
   componentWillMount() {
-    this.props.fetchUser()
     this.props.fetchIdeas()
   }
 
@@ -36,12 +35,6 @@ class IdeaList extends Component {
 
       return (
           <div className="grid-blocks">
-            <UserInfo>
-              { user.username }
-              { user.board_id }
-              <StyledLogOut href='/logout'>Logout</StyledLogOut>
-            </UserInfo>
-
             <IdeaInput/>
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
           </div>

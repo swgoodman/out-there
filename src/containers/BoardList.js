@@ -11,7 +11,6 @@ import ExistingBoard from '../components/ExistingBoard'
 
 class BoardList extends Component {
   componentWillMount() {
-    this.props.fetchBoard()
   }
 
     render() {
@@ -20,9 +19,7 @@ class BoardList extends Component {
 
       return (
           <div>
-            { board.name }
             <NewBoard/>
-            <ExistingBoard/>
           </div>
       );
     }
@@ -36,7 +33,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchBoard
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoardList)

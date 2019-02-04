@@ -29,7 +29,7 @@ export const createBoard = board => {
       'Content-Type': 'application/json',
       'Authorization': sessionStorage.jwt
     },
-    body: JSON.stringify({ name: board })
+    body: JSON.stringify({ board })
   }
 
   return dispatch => {
