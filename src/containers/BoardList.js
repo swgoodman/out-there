@@ -23,17 +23,17 @@ class BoardList extends Component {
     }
 
   handleNew() {
-    if (this.state.formState == 0 || this.state.formState == 2) {
+    if (this.state.formState === 0 || this.state.formState === 2) {
       this.setState({formState: 1});
-    } else if (this.state.formState == 1) {
+    } else if (this.state.formState === 1) {
       this.setState({formState: 0});
     }
   }
 
   handleExisting() {
-    if (this.state.formState == 0 || this.state.formState == 1) {
+    if (this.state.formState === 0 || this.state.formState === 1) {
       this.setState({formState: 2});
-    } else if (this.state.formState == 2 ) {
+    } else if (this.state.formState === 2 ) {
       this.setState({formState: 0});
     }
   }
@@ -44,8 +44,8 @@ class BoardList extends Component {
     const formState = this.state.formState;
     let form;
 
-    if (formState == 0) {
-    } else if (formState == 1) {
+    if (formState === 0) {
+    } else if (formState === 1) {
       form = <NewBoard/>;
     } else {
       form = <ExistingBoard/>;
