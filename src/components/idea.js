@@ -1,6 +1,6 @@
 import React from 'react'
-import Comment from './comment'
-import CommentInput from './commentInput'
+import Comment from './Comment'
+import CommentInput from './CommentInput'
 
 import styled from 'styled-components'
 
@@ -54,6 +54,7 @@ const StyledIdeaButton = styled.button`
 `
 
 const Idea = ({ idea: { id, header, body, comments }, deleteIdea, deleteComment }) =>
+
   <StyledIdea>
     <StyledIdeaBlock>
       <StyledIdeaButton onClick={ () => deleteIdea(id) }>X</StyledIdeaButton>

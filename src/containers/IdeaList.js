@@ -8,7 +8,7 @@ import { fetchUser } from '../actions/users'
 import { fetchIdeas, deleteIdea } from '../actions/ideas'
 import { deleteComment } from '../actions/comments'
 
-import Idea from '../components/idea.js'
+import Idea from '../components/Idea.js'
 import IdeaInput from '../components/IdeaInput.js'
 
 const UserInfo = styled.div`
@@ -31,7 +31,7 @@ class IdeaList extends Component {
 
     render() {
 
-      const { user, ideas } = this.props
+      const { user, ideas, boards } = this.props
 
       return (
           <div className="grid-blocks">
