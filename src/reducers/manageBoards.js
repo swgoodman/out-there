@@ -8,7 +8,6 @@ export default function manageBoards (state = initialState, action) {
     case 'FETCH_BOARDS':
       return { ...state, all: action.payload }
     case 'SET_BOARD':
-    debugger
       return { ...state, current: action.payload }
     case 'CREATE_BOARD':
       return { ...state, all: [...state.all, action.payload] }

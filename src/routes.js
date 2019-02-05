@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
 
 import Login from './containers/Login'
-import Signup from './containers/signup'
+import Signup from './containers/Signup'
 import IdeaList from './containers/IdeaList'
 import Dashboard from './containers/Dashboard'
 

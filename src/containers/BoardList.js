@@ -40,8 +40,9 @@ class BoardList extends Component {
 
   render() {
 
-    const { boards } = this.props
+    const { boards, current } = this.props
     const formState = this.state.formState;
+    
     let form;
 
     if (formState === 0) {
@@ -53,7 +54,7 @@ class BoardList extends Component {
 
     return (
         <div>
-
+          <p>{ current.id }</p>
           { boards.map(board => <Board key={ board.id } board={ board } deleteBoard={ this.props.deleteBoard } setBoard={ this.props.setBoard }/>)}
           <button onClick={this.handleNew}>New Board</button>
           <button onClick={this.handleExisting}> Join Board</button>
@@ -65,7 +66,8 @@ class BoardList extends Component {
 
 const mapStateToProps = state => {
   return {
-    boards: state.boards.all
+    boards: state.boards.all,
+    current: state.boards.current
   }
 }
 
