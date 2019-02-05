@@ -24,7 +24,7 @@ const StyledLogOut = styled.a`
   font-size: 14px;
 `
 
-class IdeaList extends Component {
+class IdeaContainer extends Component {
   componentWillMount() {
     this.props.fetchIdeas()
   }
@@ -56,4 +56,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   deleteComment
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(IdeaList)
+export default connect(mapStateToProps, mapDispatchToProps)(IdeaContainer)

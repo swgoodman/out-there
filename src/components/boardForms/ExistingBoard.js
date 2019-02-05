@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter} from 'react-router-dom'
 
-import { createBoard } from '../actions/boards'
+import { createBoard } from '../../actions/boards'
 import styled from 'styled-components'
 
 class NewBoard extends Component {
@@ -32,6 +32,9 @@ class NewBoard extends Component {
     const user = this.state
 
     this.props.createBoard(user, () => this.props.history.push('/'))
+    this.setState({
+      name: ''
+    });
   }
 
   render() {

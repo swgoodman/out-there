@@ -6,14 +6,11 @@ import styled from 'styled-components'
 
 import { fetchBoards, setBoard } from '../actions/boards'
 import Board from '../components/Board'
-import NewBoard from '../components/NewBoard'
-import ExistingBoard from '../components/ExistingBoard'
+import NewBoard from '../components/boardForms/NewBoard'
+import ExistingBoard from '../components/boardForms/ExistingBoard'
 
 
 class BoardList extends Component {
-  componentWillMount() {
-    this.props.fetchBoards()
-  }
 
   constructor(props) {
     super(props);
@@ -42,7 +39,7 @@ class BoardList extends Component {
 
     const { boards, current } = this.props
     const formState = this.state.formState;
-    
+
     let form;
 
     if (formState === 0) {
