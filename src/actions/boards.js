@@ -43,8 +43,7 @@ export const createBoard = board => {
   }
 }
 
-export const setBoard = (board) => {
-
+export const setBoard = board => {
   return {
     type: 'SET_BOARD',
     payload: board }
