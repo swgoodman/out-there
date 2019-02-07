@@ -3,41 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { createComment } from '../actions/comments'
-import styled from 'styled-components'
-
-const StyledCommentInput = styled.div`
-  padding: 30px;
-  background-color: white;
-`
-
-const StyledTextArea = styled.textarea`
-  border: none;
-  border-bottom: 1px solid black;
-  background: transparent;
-  font-style: italic;
-  font-size: 16px;
-  height: 20px;
-  width: 300px;
-  float: left;
-  :focus {
-    border: none;
-  }
-`
-
-const StyledCommentButton = styled.button`
-  border: none;
-  font-size: 16px;
-  color: black;
-  background-color: #FEA680;
-  font-style: italic;
-  float: left;
-  :hover {
-    cursor: pointer;
-  }
-`
 
 class CommentInput extends Component {
-
 
   constructor() {
     super();
@@ -65,18 +32,18 @@ class CommentInput extends Component {
 
     render() {
       return (
-       <StyledCommentInput>
+       <div>
           <form onSubmit={this.handleSubmit}>
-            <StyledTextArea
+            <input
               type="text"
               name="body"
               placeholder="comment"
               value={this.state.body}
               onChange={this.handleChange}
-               />
-            <StyledCommentButton type="submit">submit</StyledCommentButton>
+            />
+            <button type="submit">submit</button>
           </form>
-        </StyledCommentInput>
+        </div>
       );
     }
 

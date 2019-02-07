@@ -9,7 +9,7 @@ export const fetchIdeas = () => {
       'Authorization': sessionStorage.jwt
     }
   }
-  
+
   return dispatch => {
     fetch(`${ baseUrl }/ideas`, data)
       .then(response => response.json())
@@ -21,7 +21,7 @@ export const fetchIdeas = () => {
   }
 }
 
-export const createIdea = idea => {
+export const createIdea = (idea, board) => {
   let data = {
     method: 'POST',
     headers: {
@@ -29,7 +29,7 @@ export const createIdea = idea => {
       'Content-Type': 'application/json',
       'Authorization': sessionStorage.jwt
     },
-    body: JSON.stringify({ idea })
+    body: JSON.stringify({ idea: idea, board: board })
   }
 
   return dispatch => {

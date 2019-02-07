@@ -37,7 +37,7 @@ class BoardList extends Component {
 
   render() {
 
-    const { boards, current } = this.props
+    const { boards } = this.props
     const formState = this.state.formState;
 
     let form;
@@ -51,10 +51,9 @@ class BoardList extends Component {
 
     return (
         <div>
-          <p>{ current.id }</p>
-          { boards.map(board => <Board key={ board.id } board={ board } deleteBoard={ this.props.deleteBoard } setBoard={ this.props.setBoard }/>)}
-          <button onClick={this.handleNew}>New Board</button>
-          <button onClick={this.handleExisting}> Join Board</button>
+          {boards.map(board => <Board key={ board.id } board={ board } setBoard={ this.props.setBoard }/>)}
+          <button onClick = { this.handleNew }>New Board</button>
+          <button onClick = { this.handleExisting }> Join Board</button>
           { form }
         </div>
     );

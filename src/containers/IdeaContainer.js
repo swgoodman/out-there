@@ -11,31 +11,17 @@ import { deleteComment } from '../actions/comments'
 import Idea from '../components/Idea.js'
 import IdeaInput from '../components/IdeaInput.js'
 
-const UserInfo = styled.div`
-  color: white;
-  font-size: 20px;
-  padding-left: 2.5em;
-`
-
-const StyledLogOut = styled.a`
-  font-style: italic;
-  color: white;
-  padding-left: 10px;
-  font-size: 14px;
-`
-
 class IdeaContainer extends Component {
-  componentWillMount() {
-    this.props.fetchIdeas()
-  }
 
     render() {
 
-      const { user, ideas, boards } = this.props
-
+      const { user, current } = this.props
+      const ideas = this.props.current.ideas
+debugger
       return (
           <div className="grid-blocks">
-            <IdeaInput/>
+            <IdeaInput current={ this.props.current }/>
+
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
           </div>
       );
@@ -45,7 +31,7 @@ class IdeaContainer extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user.current,
-    ideas: state.ideas.all
+    current: state.boards.current
   }
 }
 

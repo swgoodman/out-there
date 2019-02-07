@@ -44,7 +44,22 @@ export const createBoard = board => {
 }
 
 export const setBoard = board => {
-  return {
-    type: 'SET_BOARD',
-    payload: board }
+  let data = {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.jwt
+    }
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/boards/${ board }`, data)
+      .then(response => response.json())
+      .then(board => dispatch({
+          type: 'SET_BOARD',
+          payload: board
+      }))
+      .catch(err => err)
+  }
 }
