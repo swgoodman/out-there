@@ -12,7 +12,7 @@ export default function manageBoards (state = initialState, action) {
     case 'CREATE_BOARD':
       return { ...state, all: [...state.all, action.payload] }
     case 'DELETE_BOARD':
-      return { ...state, all: state.all.filter(idea => idea.id !== action.payload.id) }
+      return { ...state, all: state.all.filter(board => board.id !== action.payload.id) }
     default: return state
   }
 }

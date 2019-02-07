@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import styled from 'styled-components'
-
 import { fetchBoards, setBoard } from '../actions/boards'
 import Board from '../components/Board'
 import NewBoard from '../components/boardForms/NewBoard'

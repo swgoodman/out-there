@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 const Comment = ({ comment: { id, body }, ideaId, deleteComment}) => {
       return (

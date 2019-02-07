@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect, Link } from 'react-redux'
 
-import styled from 'styled-components'
 
 import { fetchUser } from '../actions/users'
 import { fetchBoards, setBoard } from '../actions/boards'
@@ -16,8 +15,8 @@ class Dashboard extends Component {
   componentWillMount() {
     this.props.fetchUser()
     this.props.fetchBoards()
+    this.props.setBoard()
   }
-
 
     render() {
 
@@ -32,8 +31,6 @@ class Dashboard extends Component {
       return (
           <div>
             <BoardList boards={ boards } setBoard={ this.props.setBoard }/>
-            <h1>Is this thing on</h1>
-            <p>asdflkasjdf;laksdjf dfasd jfasdl;fkjasd;lfkj as;ldfkjasdf jqwefhaspidufzkb;h asdflkjhqwelfkh</p>
             { ideas }
             { user.username }
             <a href='/logout'>Logout</a>

@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { withRouter} from 'react-router-dom'
 
 import { createBoard } from '../../actions/boards'
-import styled from 'styled-components'
 
 class NewBoard extends Component {
   constructor() {

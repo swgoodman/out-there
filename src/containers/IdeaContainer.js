@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import styled from 'styled-components'
-
 import { fetchUser } from '../actions/users'
 import { fetchIdeas, deleteIdea } from '../actions/ideas'
 import { deleteComment } from '../actions/comments'
@@ -13,11 +11,13 @@ import IdeaInput from '../components/IdeaInput.js'
 
 class IdeaContainer extends Component {
 
+  
+
     render() {
 
       const { user, current } = this.props
       const ideas = this.props.current.ideas
-debugger
+
       return (
           <div className="grid-blocks">
             <IdeaInput current={ this.props.current }/>
