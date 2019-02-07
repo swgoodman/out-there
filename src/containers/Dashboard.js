@@ -28,10 +28,12 @@ class Dashboard extends Component {
       if (this.props.current.ideas) {
         ideas = <IdeaContainer board={ current } fetchIdeas={ this.props.fetchIdeas }/>;
       };
-      
+
       return (
           <div>
             <BoardList boards={ boards } setBoard={ this.props.setBoard }/>
+            <h1>Is this thing on</h1>
+            <p>asdflkasjdf;laksdjf dfasd jfasdl;fkjasd;lfkj as;ldfkjasdf jqwefhaspidufzkb;h asdflkjhqwelfkh</p>
             { ideas }
             { user.username }
             <a href='/logout'>Logout</a>
