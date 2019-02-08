@@ -8,7 +8,7 @@ export default function manageBoards (state = initialState, action) {
     case 'FETCH_BOARDS':
       return { ...state, all: action.payload }
     case 'SET_BOARD':
-      return { ...state, current: action.payload }
+      return { ...state, current: action.payload.board }
     case 'CREATE_BOARD':
       return { ...state, all: [...state.all, action.payload] }
     case 'DELETE_BOARD':

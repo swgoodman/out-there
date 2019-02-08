@@ -11,16 +11,13 @@ import IdeaInput from '../components/IdeaInput.js'
 
 class IdeaContainer extends Component {
 
-  
-
     render() {
 
-      const { user, current } = this.props
-      const ideas = this.props.current.ideas
+      const { user, current, ideas } = this.props
 
       return (
           <div className="grid-blocks">
-            <IdeaInput current={ this.props.current }/>
+            <IdeaInput current={ this.props.board }/>
 
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
           </div>
@@ -31,12 +28,12 @@ class IdeaContainer extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user.current,
-    current: state.boards.current
+    current: state.boards.current,
+    ideas: state.ideas.all
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchUser,
   fetchIdeas,
   deleteIdea,
   deleteComment

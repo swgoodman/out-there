@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { fetchBoards, setBoard } from '../actions/boards'
+import { fetchIdeas } from '../actions/ideas'
 import Board from '../components/Board'
 import NewBoard from '../components/boardForms/NewBoard'
 import ExistingBoard from '../components/boardForms/ExistingBoard'
@@ -35,7 +36,7 @@ class BoardList extends Component {
 
   render() {
 
-    const { boards } = this.props
+    const { boards, setBoard, fetchIdeas } = this.props
     const formState = this.state.formState;
 
     let form;
@@ -49,7 +50,7 @@ class BoardList extends Component {
 
     return (
         <div>
-          {boards.map(board => <Board key={ board.id } board={ board } setBoard={ this.props.setBoard }/>)}
+          {boards.map(board => <Board key={ board.id } board={ board } fetchIdeas={ this.props.fetchIdeas } setBoard={this.props.setBoard}/>)}
           <button onClick = { this.handleNew }>New Board</button>
           <button onClick = { this.handleExisting }> Join Board</button>
           { form }
@@ -60,13 +61,12 @@ class BoardList extends Component {
 
 const mapStateToProps = state => {
   return {
-    boards: state.boards.all,
-    current: state.boards.current
+    boards: state.boards.all
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchBoards,
+  fetchIdeas,
   setBoard
 }, dispatch)
 

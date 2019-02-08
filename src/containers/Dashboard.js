@@ -15,23 +15,22 @@ class Dashboard extends Component {
   componentWillMount() {
     this.props.fetchUser()
     this.props.fetchBoards()
-    this.props.setBoard()
   }
 
     render() {
 
-      const { user, boards, current } = this.props
+      const { user, boards, ideas, board } = this.props
 
-      let ideas;
+      let ideaBlock;
 
-      if (this.props.current.ideas) {
-        ideas = <IdeaContainer board={ current } fetchIdeas={ this.props.fetchIdeas }/>;
+      if (board !== {}) {
+        ideaBlock = <IdeaContainer ideas={ ideas }/>;
       };
 
       return (
           <div>
-            <BoardList boards={ boards } setBoard={ this.props.setBoard }/>
-            { ideas }
+            <BoardList boards={ boards } fetchIdeas={ this.props.fetchIdeas } setBoard={ this.props.setBoard}/>
+            { ideaBlock }
             { user.username }
             <a href='/logout'>Logout</a>
           </div>
@@ -43,7 +42,8 @@ const mapStateToProps = state => {
   return {
     user: state.user.current,
     boards: state.boards.all,
-    current: state.boards.current
+    ideas: state.ideas.all,
+    board: state.boards.current
   }
 }
 

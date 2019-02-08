@@ -9,9 +9,8 @@ const initialState =  {
 export default function manageIdeas(state = initialState, action) {
   switch(action.type) {
     case 'FETCH_IDEAS':
-      return { ...state, all: action.payload }
+      return { ...state, all: action.payload.ideas }
     case 'CREATE_IDEA':
-    debugger
       return { ...state, all: [...state.all, action.payload] }
     case 'DELETE_IDEA':
       return { ...state, all: state.all.filter(idea => idea.id !== action.payload.id) }

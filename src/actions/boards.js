@@ -52,7 +52,7 @@ export const setBoard = board => {
       'Authorization': sessionStorage.jwt
     }
   }
-
+  
   return dispatch => {
     fetch(`${ baseUrl }/boards/${ board }`, data)
       .then(response => response.json())

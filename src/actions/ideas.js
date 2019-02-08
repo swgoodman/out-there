@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3005/api/v1'
 
-export const fetchIdeas = () => {
+export const fetchIdeas = (id) => {
   let data = {
     method: 'GET',
     headers: {
@@ -9,9 +9,9 @@ export const fetchIdeas = () => {
       'Authorization': sessionStorage.jwt
     }
   }
-
+  
   return dispatch => {
-    fetch(`${ baseUrl }/ideas`, data)
+    fetch(`${ baseUrl }/boards/${ id }`, data)
       .then(response => response.json())
       .then(ideas => dispatch({
           type: 'FETCH_IDEAS',
