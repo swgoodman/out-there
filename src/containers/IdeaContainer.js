@@ -13,24 +13,16 @@ class IdeaContainer extends Component {
 
     render() {
 
-      const { user, current, ideas } = this.props
+      const { ideas, board } = this.props
 
       return (
           <div className="grid-blocks">
-            <IdeaInput current={ this.props.board }/>
+            <IdeaInput current={ board }/>
 
             { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
           </div>
       );
     }
-}
-
-const mapStateToProps = state => {
-  return {
-    user: state.user.current,
-    current: state.boards.current,
-    ideas: state.ideas.all
-  }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -39,4 +31,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   deleteComment
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(IdeaContainer)
+export default connect(null, mapDispatchToProps)(IdeaContainer)

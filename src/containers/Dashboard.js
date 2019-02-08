@@ -23,8 +23,8 @@ class Dashboard extends Component {
 
       let ideaBlock;
 
-      if (board !== {}) {
-        ideaBlock = <IdeaContainer ideas={ ideas }/>;
+      if (Object.keys(board).length > 0 ) {
+        ideaBlock = <IdeaContainer ideas={ ideas } board={ board }/>;
       };
 
       return (

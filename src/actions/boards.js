@@ -31,11 +31,11 @@ export const createBoard = board => {
     },
     body: JSON.stringify({ board })
   }
-
+  debugger
   return dispatch => {
     fetch(`${ baseUrl }/boards`, data)
       .then(response => response.json())
-      .then(idea => dispatch({
+      .then(board => dispatch({
         type: 'CREATE_BOARD',
         payload: board
       }))
@@ -52,7 +52,7 @@ export const setBoard = board => {
       'Authorization': sessionStorage.jwt
     }
   }
-  
+
   return dispatch => {
     fetch(`${ baseUrl }/boards/${ board }`, data)
       .then(response => response.json())

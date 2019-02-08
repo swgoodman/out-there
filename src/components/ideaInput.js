@@ -28,7 +28,7 @@ class IdeaInput extends Component {
 
     handleSubmit(e) {
       e.preventDefault()
-      this.props.createIdea(this.state, this.props.current.board)
+      this.props.createIdea(this.state, this.props.current)
       this.setState({
         header: "",
         body: ""

@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom'
 
 const Board = ({ board: { id, name }, fetchIdeas, setBoard }) =>
       <div>
-        <button onClick={ ()=> {fetchIdeas(id); setBoard(id);} }>{ name }</button>
+        <button onClick={ ()=> {setBoard(id); fetchIdeas(id); } }>{ name }</button>
       </div>
 
 export default Board

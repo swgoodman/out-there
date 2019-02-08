@@ -9,7 +9,7 @@ export const fetchIdeas = (id) => {
       'Authorization': sessionStorage.jwt
     }
   }
-  
+
   return dispatch => {
     fetch(`${ baseUrl }/boards/${ id }`, data)
       .then(response => response.json())
@@ -52,7 +52,7 @@ export const deleteIdea = id => {
       'Authorization': sessionStorage.jwt
     }
   }
-
+  debugger
   return dispatch => {
     fetch(`${ baseUrl }/ideas/${ id }`, data)
       .then(response => response.json())
