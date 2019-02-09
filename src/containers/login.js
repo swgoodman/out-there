@@ -3,18 +3,16 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import { loginUser } from '../actions/users'
-import compose from 'recompose/compose'
-
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -22,7 +20,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 const styles = theme => ({
   main: {
     width: 'auto',
-    display: 'block',
+    display: 'block', // Fix IE 11 issue.
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
@@ -43,7 +41,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%',
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing.unit,
   },
   submit: {
@@ -51,9 +49,10 @@ const styles = theme => ({
   },
 });
 
+
 class Login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       username: '',
@@ -79,19 +78,19 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password } = this.state
+    const { username, password } = this.state;
 
     return (
-      <main>
-        <CssBaseline />
-          <Paper>
-          <Avatar>
+        <main style={styles.main}>
+        <CssBaseline/>
+        <paper style={styles.paper}>
+          <Avatar style={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-            <form onSubmit={ this.onSubmit }>
+            <form onSubmit={ this.onSubmit } style={styles.form}>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="username">Username</InputLabel>
                 <input name="username" value={ username } onChange={ this.onChange }/>
@@ -109,8 +108,8 @@ class Login extends Component {
               </Button>
             </form>
             <a href='/signup'>Sign Up</a>
-          </Paper>
-      </main>
+            </paper>
+        </main>
     )
   }
 }
@@ -119,11 +118,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   loginUser
 }, dispatch)
 
-Login.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default compose(
-   withStyles(styles),
-   connect(null, mapDispatchToProps)
-)(withRouter(Login))
+export default withRouter(connect(null, mapDispatchToProps)(Login))
