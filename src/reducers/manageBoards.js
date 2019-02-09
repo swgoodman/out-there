@@ -10,7 +10,6 @@ export default function manageBoards (state = initialState, action) {
     case 'SET_BOARD':
       return { ...state, current: action.payload.board }
     case 'CREATE_BOARD':
-    debugger
       return { ...state, all: [...state.all, action.payload] }
     case 'DELETE_BOARD':
       return { ...state, all: state.all.filter(board => board.id !== action.payload.id) }

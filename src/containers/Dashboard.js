@@ -11,6 +11,9 @@ import IdeaInput from '../components/IdeaInput'
 import IdeaContainer from './IdeaContainer'
 import BoardList from './BoardList'
 
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
 class Dashboard extends Component {
   componentWillMount() {
     this.props.fetchUser()
@@ -28,12 +31,20 @@ class Dashboard extends Component {
       };
 
       return (
-          <div>
-            <BoardList boards={ boards } fetchIdeas={ this.props.fetchIdeas } setBoard={ this.props.setBoard}/>
-            { ideaBlock }
-            { user.username }
-            <a href='/logout'>Logout</a>
-          </div>
+        <>
+          <Grid container sm={12}>
+            <Grid item sm={3}>
+              <Paper>
+                <BoardList boards={ boards } fetchIdeas={ this.props.fetchIdeas } setBoard={ this.props.setBoard}/>
+              </Paper>
+            </Grid>
+            <Grid item sm={9}>
+              { ideaBlock }
+              { user.username }
+              <a href='/logout'>Logout</a>
+            </Grid>
+          </Grid>
+        </>
       );
     }
 }
