@@ -31,7 +31,7 @@ export const createBoard = board => {
     },
     body: JSON.stringify({ board })
   }
-  
+
   return dispatch => {
     fetch(`${ baseUrl }/boards`, data)
       .then(response => response.json())

@@ -52,7 +52,6 @@ export const deleteIdea = id => {
       'Authorization': sessionStorage.jwt
     }
   }
-  debugger
   return dispatch => {
     fetch(`${ baseUrl }/ideas/${ id }`, data)
       .then(response => response.json())

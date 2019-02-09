@@ -8,6 +8,10 @@ import Board from '../components/Board'
 import NewBoard from '../components/boardForms/NewBoard'
 import ExistingBoard from '../components/boardForms/ExistingBoard'
 
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+
 
 class BoardList extends Component {
 
@@ -50,10 +54,17 @@ class BoardList extends Component {
 
     return (
         <div>
-          {boards.map(board => <Board key={ board.id } board={ board } fetchIdeas={ this.props.fetchIdeas } setBoard={this.props.setBoard}/>)}
-          <button onClick = { this.handleNew }>New Board</button>
-          <button onClick = { this.handleExisting }> Join Board</button>
-          { form }
+          <div>
+            <Typography variant="h2">Boards</Typography>
+          </div>
+            <List component="nav">
+              {boards.map(board => <Board key={ board.id } board={ board } fetchIdeas={ this.props.fetchIdeas } setBoard={this.props.setBoard}/>)}
+            </List>
+
+            <Button variant="contained" color="primary" onClick = { this.handleNew }>New Board</Button>
+            <Button variant="contained" color="primary" onClick = { this.handleExisting }> Join Board</Button>
+
+            { form }
         </div>
     );
   }

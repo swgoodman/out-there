@@ -5,6 +5,10 @@ import { withRouter} from 'react-router-dom'
 
 import { createBoard } from '../../actions/boards'
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+
 class NewBoard extends Component {
   constructor() {
     super()
@@ -42,8 +46,8 @@ class NewBoard extends Component {
     return (
       <div>
         <form onSubmit={ this.onSubmit }>
-          <input name="name" placeholder="board name" value={ name } onChange={ this.onChange }/><br/>
-          <button type="submit">Create</button>
+          <TextField variant="outlined" name="name" placeholder="board name" value={ name } onChange={ this.onChange }/><br/>
+          <Button variant="contained" color="secondary" type="submit">Create</Button>
         </form>
       </div>
     )

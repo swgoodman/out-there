@@ -39,9 +39,9 @@ class Dashboard extends Component {
               </Paper>
             </Grid>
             <Grid item sm={9}>
-              { ideaBlock }
-              { user.username }
-              <a href='/logout'>Logout</a>
+                { ideaBlock }
+                { user.username }
+                <a href='/logout'>Logout</a>
             </Grid>
           </Grid>
         </>
