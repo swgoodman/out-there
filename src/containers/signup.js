@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { signupUser } from '../actions/users'
 import { withStyles, createStyles } from '@material-ui/core/styles'
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import FormControl from '@material-ui/core/FormControl'

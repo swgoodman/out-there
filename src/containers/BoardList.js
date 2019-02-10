@@ -8,7 +8,24 @@ import NewBoard from '../components/boardForms/NewBoard'
 import ExistingBoard from '../components/boardForms/ExistingBoard'
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography'
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Divider from '@material-ui/core/Divider'
+
+import PropTypes from 'prop-types'
+import { withStyles, createStyles } from '@material-ui/core/styles'
+
+const styles = theme => ({
+  divider: {
+    margin: 10,
+  },
+  button: {
+    margin: theme.spacing.unit,
+  },
+})
 
 
 class BoardList extends Component {
@@ -38,7 +55,7 @@ class BoardList extends Component {
 
   render() {
 
-    const { boards, setBoard, fetchIdeas } = this.props
+    const { boards, setBoard, fetchIdeas, classes } = this.props
     const formState = this.state.formState;
 
     let form;
@@ -55,18 +72,24 @@ class BoardList extends Component {
           <div>
             <Typography variant="h2">Boards</Typography>
           </div>
-          <List component="nav">
-            {boards.map(board => <Board key={ board.id } board={ board } fetchIdeas={ this.props.fetchIdeas } setBoard={this.props.setBoard}/>)}
-          </List>
+          <div>
+              {boards.map(board => <Board key={ board.id } board={ board } fetchIdeas={ this.props.fetchIdeas } setBoard={this.props.setBoard}/>)}
+          </div>
 
-          <Button variant="contained" color="primary" onClick = { this.handleNew }>New Board</Button>
-          <Button variant="contained" color="primary" onClick = { this.handleExisting }> Join Board</Button>
+          <Divider className={classes.divider}/>
+
+          <Button  className={classes.button} onClick = { this.handleNew }>New Board</Button>
+          <Button  className={classes.button} onClick = { this.handleExisting }> Join Board</Button>
 
           { form }
         </div>
     );
   }
 }
+
+BoardList.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => {
   return {
@@ -79,4 +102,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   setBoard
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardList)
+export default withStyles(styles) (connect(mapStateToProps, mapDispatchToProps)(BoardList))

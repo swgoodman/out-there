@@ -79,9 +79,9 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: theme.spacing.unit * 7,
+    width: theme.spacing.unit * 0,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9,
+      width: theme.spacing.unit * 0,
     },
   },
   appBarSpacer: theme.mixins.toolbar,
@@ -99,6 +99,13 @@ const styles = theme => ({
   },
   h5: {
     marginBottom: theme.spacing.unit * 2,
+  },
+  divider: {
+    margin: 10,
+  },
+  user: {
+    margin: 10,
+    alignItems: 'center',
   },
 });
 
@@ -132,56 +139,60 @@ class Dashboard extends Component {
 
     return (
       <div className={classes.root}>
-      <AppBar
-  position="absolute"
-  className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
->
-  <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
-    <IconButton
-      color="inherit"
-      aria-label="Open drawer"
-      onClick={this.handleDrawerOpen}
-      className={classNames(
-        classes.menuButton,
-        this.state.open && classes.menuButtonHidden,
-      )}
-    >
-      <MenuIcon />
-    </IconButton>
-    <Typography
-      component="h1"
-      variant="h6"
-      color="inherit"
-      noWrap
-      className={classes.title}
-    >
-      Dashboard
-    </Typography>
-  </Toolbar>
-</AppBar>
-<Drawer
-  variant="permanent"
-  classes={{
-    paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
-  }}
-  open={this.state.open}
->
-  <div className={classes.toolbarIcon}>
-    <IconButton onClick={this.handleDrawerClose}>
-      <ChevronLeftIcon />
-    </IconButton>
-  </div>
-  <Divider />
-  <List>
-    <BoardList boards={ boards } fetchIdeas={ this.props.fetchIdeas } setBoard={ this.props.setBoard}/>
-  </List>
-  <Divider />
-</Drawer>
-<main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-              { ideaBlock }
+        <AppBar
+          position="absolute"
+          className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
+          >
+          <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={this.handleDrawerOpen}
+              className={classNames(
+                classes.menuButton,
+                this.state.open && classes.menuButtonHidden,
+              )}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.title}
+            >
+              Out There
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+          }}
+          open={this.state.open}
+          >
+          <div className={classes.toolbarIcon}>
+            <IconButton onClick={this.handleDrawerClose}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider className={classes.divider}/>
+          <List>
+            <BoardList boards={ boards } fetchIdeas={ this.props.fetchIdeas } setBoard={ this.props.setBoard}/>
+            <Divider />
+            <Typography className={classes.user}>
               { user.username }
-              <a href='/logout'>Logout</a>
+              <a  className={classes.user} href='/logout'>Logout</a>
+            </Typography>
+          </List>
+        </Drawer>
+
+        <main className={classes.content}>
+          <div className={classes.appBarSpacer} />
+          { ideaBlock }
         </main>
       </div>
     );

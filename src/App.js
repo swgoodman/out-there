@@ -8,5 +8,4 @@ export default () =>
   <>
     <CssBaseline/>
     { routes }
-    <Footer/>
   </>
