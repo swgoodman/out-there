@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { loginUser } from '../actions/users'
 import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
+import classNames from 'classnames';
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import { withStyles, createStyles } from "@material-ui/core/styles"
 
 const styles = theme => ({
   main: {
@@ -51,8 +49,8 @@ const styles = theme => ({
 
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       username: '',
       password: ''
@@ -76,20 +74,20 @@ class Login extends Component {
 
   render() {
     const { username, password } = this.state;
+    const { classes } = this.props;
 
     return (
-      <main style={styles.main}>
-        <CssBaseline/>
+      <main  className={classes.main}>
 
-        <paper style={styles.paper}>
-          <Avatar style={styles.avatar}>
+        <Paper  className={classes.paper}>
+          <Avatar  className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          
+
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <form onSubmit={ this.onSubmit } style={styles.form}>
+          <form className={classes.form} onSubmit={ this.onSubmit }>
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="username">Username</InputLabel>
               <input name="username" value={ username } onChange={ this.onChange }/>
@@ -102,20 +100,25 @@ class Login extends Component {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary">
+              color="primary"
+              className={classes.submit}>
               Login
             </Button>
           </form>
 
           <a href='/signup'>Sign Up</a>
-        </paper>
+        </Paper>
       </main>
     )
   }
 }
 
+Login.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   loginUser
 }, dispatch)
 
-export default withRouter(connect(null, mapDispatchToProps)(Login))
+export default withStyles(styles) (withRouter(connect(null, mapDispatchToProps)(Login)))

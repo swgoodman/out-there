@@ -1,7 +1,4 @@
 import React from 'react'
-import Comment from './Comment'
-import CommentInput from './CommentInput'
-
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Delete from '@material-ui/icons/Delete';

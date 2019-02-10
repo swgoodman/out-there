@@ -33,7 +33,7 @@ class IdeaInput extends Component {
     }
 
     render() {
-      const { header, body, board } = this.state
+      const { header, body } = this.state
 
       return (
         <div>

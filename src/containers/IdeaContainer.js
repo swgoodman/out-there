@@ -16,17 +16,21 @@ class IdeaContainer extends Component {
     return (
       <div>
         <Paper>
-          <Typography>{board.name}</Typography>
+          <Typography variant="h4">{board.name}</Typography>
           <IdeaInput current={ board }/>
         </Paper>
 
-        <Grid container spacing={16}>
-          <Grid item xs={12}>
-            <Grid container justify="center">
-              { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
+          <Grid
+          container
+          direction="row"
+          justify="space-evenly"
+          alignItems="center">
+            <Grid item xs={6}>
+              <Grid container justify="center">
+                { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
       </div>
     );
   }
