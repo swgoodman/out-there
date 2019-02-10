@@ -12,19 +12,10 @@ import { withStyles, createStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Divider from '@material-ui/core/Divider'
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 const styles = theme => ({
-  main: {
-    width: 'auto',
-    display: 'block', // Fix IE 11 issue.
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
-      width: 400,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
-  },
   paper: {
     marginTop: theme.spacing.unit * 1,
     display: 'flex',
@@ -33,6 +24,52 @@ const styles = theme => ({
   },
   divider: {
     margin: 10,
+  },
+  appBar: {
+    position: 'relative',
+  },
+  icon: {
+    marginRight: theme.spacing.unit * 2,
+  },
+  heroUnit: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  heroContent: {
+    maxWidth: 600,
+    margin: '0 auto',
+    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+  },
+  heroButtons: {
+    marginTop: theme.spacing.unit * 4,
+  },
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+  cardGrid: {
+    padding: `${theme.spacing.unit * 8}px 0`,
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    margin: `${theme.spacing.unit * 1}px 0`
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing.unit * 6,
   },
 })
 
@@ -48,17 +85,17 @@ class IdeaContainer extends Component {
           <IdeaInput current={ board }/>
         </Paper>
 
-          <Grid
-          container
-          direction="row"
-          justify="space-evenly"
-          alignItems="center">
-            <Grid item xs={6}>
-              <Grid container justify="center">
-                { ideas.map(idea => <Idea key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>) }
-              </Grid>
+        <Grid container spacing={40}>
+          { ideas.map(idea => (
+            <Grid item key={idea.id} sm={6} md={4} lg={3}>
+              <Card className={classes.card}>
+                <CardContent className={classes.cardContent}>
+                  <Idea className={classes.card} key={ idea.id } idea={ idea } deleteIdea={ this.props.deleteIdea } deleteComment={ this.props.deleteComment }/>
+                </CardContent>
+              </Card>
             </Grid>
-          </Grid>
+          ))};
+        </Grid>
       </div>
     );
   }

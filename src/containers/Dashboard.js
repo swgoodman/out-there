@@ -179,10 +179,9 @@ class Dashboard extends Component {
               <ChevronLeftIcon />
             </IconButton>
           </div>
-          <Divider className={classes.divider}/>
           <List>
             <BoardList boards={ boards } fetchIdeas={ this.props.fetchIdeas } setBoard={ this.props.setBoard}/>
-            <Divider />
+            <Divider  className={classes.divider}/>
             <Typography className={classes.user}>
               { user.username }
               <a  className={classes.user} href='/logout'>Logout</a>

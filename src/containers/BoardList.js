@@ -70,7 +70,8 @@ class BoardList extends Component {
     return (
         <div>
           <div>
-            <Typography variant="h2">Boards</Typography>
+            <Typography  className={classes.divider} variant="h3">Boards</Typography>
+            <Divider className={classes.divider}/>
           </div>
           <div>
               {boards.map(board => <Board key={ board.id } board={ board } fetchIdeas={ this.props.fetchIdeas } setBoard={this.props.setBoard}/>)}
