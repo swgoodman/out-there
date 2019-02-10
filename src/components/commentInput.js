@@ -1,14 +1,12 @@
 import React, { Component } from "react"
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-
 import { createComment } from '../actions/comments'
 
 class CommentInput extends Component {
 
   constructor() {
     super();
-
     this.state = {
       body: ''
     };
@@ -22,7 +20,6 @@ class CommentInput extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     const { ideaId } = this.props
     this.props.createComment(this.state, ideaId)
     this.setState({
@@ -30,22 +27,22 @@ class CommentInput extends Component {
     });
   }
 
-    render() {
-      return (
-       <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="body"
-              placeholder="comment"
-              value={this.state.body}
-              onChange={this.handleChange}
-            />
-            <button type="submit">submit</button>
-          </form>
-        </div>
-      );
-    }
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="body"
+            placeholder="comment"
+            value={this.state.body}
+            onChange={this.handleChange}
+          />
+          <button type="submit">submit</button>
+        </form>
+      </div>
+    );
+  }
 
 }
 

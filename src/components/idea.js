@@ -7,7 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import Delete from '@material-ui/icons/Delete';
 
 const Idea = ({ idea: { id, header, body, comments }, deleteIdea }) =>
-
   <>
     <Grid item>
       <Paper>

@@ -53,12 +53,10 @@ const styles = theme => ({
 class Login extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       username: '',
       password: ''
     }
-
     this.onSubmit = this.onSubmit.bind(this)
     this.onChange = this.onChange.bind(this)
   }
@@ -66,7 +64,6 @@ class Login extends Component {
   onChange(e) {
     const field = e.target.name
     let state = this.state
-
     state[field] = e.target.value
     this.setState(state)
   }
@@ -81,35 +78,38 @@ class Login extends Component {
     const { username, password } = this.state;
 
     return (
-        <main style={styles.main}>
+      <main style={styles.main}>
         <CssBaseline/>
+
         <paper style={styles.paper}>
           <Avatar style={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
+          
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-            <form onSubmit={ this.onSubmit } style={styles.form}>
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="username">Username</InputLabel>
-                <input name="username" value={ username } onChange={ this.onChange }/>
-              </FormControl>
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="username">Password</InputLabel>
-                <input type='password' name="password" value={ password } onChange={ this.onChange }/>
-              </FormControl>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-              >Login
-              </Button>
-            </form>
-            <a href='/signup'>Sign Up</a>
-            </paper>
-        </main>
+          <form onSubmit={ this.onSubmit } style={styles.form}>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="username">Username</InputLabel>
+              <input name="username" value={ username } onChange={ this.onChange }/>
+            </FormControl>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="username">Password</InputLabel>
+              <input type='password' name="password" value={ password } onChange={ this.onChange }/>
+            </FormControl>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary">
+              Login
+            </Button>
+          </form>
+
+          <a href='/signup'>Sign Up</a>
+        </paper>
+      </main>
     )
   }
 }

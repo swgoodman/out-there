@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-
 import { createIdea } from '../actions/ideas'
 
 class IdeaInput extends Component {
 
     constructor() {
       super();
-
       this.state = {
         header: "",
         body: ""
@@ -21,7 +19,6 @@ class IdeaInput extends Component {
     handleChange(e) {
       const field = e.target.name
       let state = this.state
-
       state[field] = e.target.value
       this.setState(state)
     }

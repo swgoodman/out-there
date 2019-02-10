@@ -11,7 +11,6 @@ export default function manageIdeas(state = initialState, action) {
     case 'FETCH_IDEAS':
       return { ...state, all: action.payload.ideas }
     case 'CREATE_IDEA':
-    debugger
       return { ...state, all: [...state.all, action.payload] }
     case 'DELETE_IDEA':
       return { ...state, all: state.all.filter(idea => idea.id !== action.payload.id) }
@@ -24,7 +23,6 @@ export default function manageIdeas(state = initialState, action) {
       all = [ ...state.all ]
       idx = all.findIndex(idea => idea.id === action.payload.idea_id)
       all[idx].comments = all[idx].comments.filter(comment => comment.id !== action.payload.id)
-
       return { ...state, all }
     default: return state
   }

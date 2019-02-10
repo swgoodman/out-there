@@ -2,20 +2,17 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter} from 'react-router-dom'
-
 import { createBoard } from '../../actions/boards'
-
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 class NewBoard extends Component {
+
   constructor() {
     super()
-
     this.state = {
       name: ''
     }
-
     this.onSubmit = this.onSubmit.bind(this)
     this.onChange = this.onChange.bind(this)
   }
@@ -23,16 +20,13 @@ class NewBoard extends Component {
   onChange(e) {
     const field = e.target.name
     let state = this.state
-
     state[field] = e.target.value
     this.setState(state)
   }
 
   onSubmit(e) {
     e.preventDefault()
-
     const user = this.state
-
     this.props.createBoard(user, () => this.props.history.push('/'))
     this.setState({
       name: ''
