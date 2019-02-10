@@ -3,17 +3,16 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { loginUser } from '../actions/users'
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import { withStyles, createStyles } from "@material-ui/core/styles"
+import { withStyles, createStyles } from '@material-ui/core/styles'
 
 const styles = theme => ({
   main: {
@@ -78,7 +77,6 @@ class Login extends Component {
 
     return (
       <main  className={classes.main}>
-
         <Paper  className={classes.paper}>
           <Avatar  className={classes.avatar}>
             <LockOutlinedIcon />
