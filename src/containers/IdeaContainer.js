@@ -13,7 +13,8 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Divider from '@material-ui/core/Divider'
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import CardContent from '@material-ui/core/CardContent'
+import Button from '@material-ui/core/Button'
 
 const styles = theme => ({
   paper: {
@@ -75,12 +76,31 @@ const styles = theme => ({
 
 class IdeaContainer extends Component {
 
+  compare(a,b) {
+    if (a.header < b.header)
+      return -1;
+    if (a.header > b.header)
+      return 1;
+    return 0;
+  };
+
+  handleAlpha(){
+    this.props.ideas.sort((a,b) => (a.header > b.header) ? 1 : ((b.header > a.header) ? -1 : 0));
+    return this.props.ideas
+  };
+
+
+
   render() {
     const { ideas, board, classes } = this.props
     return (
       <div>
         <Paper className={classes.paper}>
           <Typography variant="h4">{board.name}</Typography>
+          { // Button that onClick sorts this.props.ideas alphabetically
+          }
+
+          <Button onClick={ () => this.handleAlpha() }>Alphabetize</Button>
           <Divider className={classes.divider}/>
           <IdeaInput current={ board }/>
         </Paper>

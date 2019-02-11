@@ -44,7 +44,9 @@ class NewBoard extends Component {
   onSubmit(e) {
     e.preventDefault()
     const user = this.state
+    console.log('A')
     this.props.createBoard(user, () => this.props.history.push('/'))
+    console.log('B')
     this.setState({
       name: ''
     });

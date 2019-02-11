@@ -22,6 +22,7 @@ export const fetchBoards = () => {
 }
 
 export const createBoard = board => {
+  console.log('C')
   let data = {
     method: 'POST',
     headers: {
@@ -35,12 +36,15 @@ export const createBoard = board => {
   return dispatch => {
     fetch(`${ baseUrl }/boards`, data)
       .then(response => response.json())
-      .then(board => dispatch({
+      .then(board => {
+        console.log('D')
+        dispatch({
         type: 'CREATE_BOARD',
         payload: board
-      }))
+      })})
       .catch(err => err)
   }
+  console.log('E')
 }
 
 export const setBoard = board => {
