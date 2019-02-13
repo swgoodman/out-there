@@ -26,7 +26,7 @@ const Idea = ({ idea: { id, header, body, comments }, deleteIdea, classes }) =>
    <CardContent className={classes.cardContent}>
     <Delete className={classes.delete} onClick={ () => deleteIdea(id) }/>
     <Typography variant="h4">{ header }</Typography>
-    <Typography variant="p">{ body }</Typography>
+    <Typography variant="body1">{ body }</Typography>
   </CardContent>
 
   Idea.propTypes = {

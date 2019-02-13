@@ -76,31 +76,33 @@ const styles = theme => ({
 
 class IdeaContainer extends Component {
 
-  compare(a,b) {
-    if (a.header < b.header)
-      return -1;
-    if (a.header > b.header)
-      return 1;
-    return 0;
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      ideas: props.ideas
+    }
+    this.handleAlpha = this.handleAlpha.bind(this)
+  }
 
   handleAlpha(){
-    this.props.ideas.sort((a,b) => (a.header > b.header) ? 1 : ((b.header > a.header) ? -1 : 0));
-    return this.props.ideas
+    const ideas = this.props.ideas.sort((a,b) => (a.header > b.header) ? 1 : ((b.header > a.header) ? -1 : 0));
+    debugger
+    return ideas
+
   };
 
 
 
   render() {
     const { ideas, board, classes } = this.props
+
     return (
       <div>
         <Paper className={classes.paper}>
           <Typography variant="h4">{board.name}</Typography>
-          { // Button that onClick sorts this.props.ideas alphabetically
-          }
 
           <Button onClick={ () => this.handleAlpha() }>Alphabetize</Button>
+
           <Divider className={classes.divider}/>
           <IdeaInput current={ board }/>
         </Paper>
