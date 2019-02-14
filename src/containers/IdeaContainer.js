@@ -76,21 +76,11 @@ const styles = theme => ({
 
 class IdeaContainer extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      ideas: props.ideas
-    }
-    this.handleAlpha = this.handleAlpha.bind(this)
-  }
-
   handleAlpha(){
-    const ideas = this.props.ideas.sort((a,b) => (a.header > b.header) ? 1 : ((b.header > a.header) ? -1 : 0));
+    const ideas = this.props.ideas
     debugger
-    return ideas
-
+    this.props.sortIdeas(ideas)
   };
-
 
 
   render() {

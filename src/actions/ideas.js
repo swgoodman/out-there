@@ -62,3 +62,15 @@ export const deleteIdea = id => {
       .catch(err => err)
   }
 }
+
+export const sortIdeas = ideas => {
+  ideas.sort((a, b) => (a.header > b.header) ? 1 : ((b.header > a.header) ? -1 : 0));
+
+  return dispatch => {
+      ideas => dispatch({
+        type: 'SORT_IDEAS',
+        payload: ideas
+      }))
+      .catch(err => err)
+  }
+}
