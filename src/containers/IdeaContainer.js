@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchIdeas, deleteIdea } from '../actions/ideas'
+import { fetchIdeas, deleteIdea, sortIdeas } from '../actions/ideas'
 import { deleteComment } from '../actions/comments'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
@@ -78,7 +78,6 @@ class IdeaContainer extends Component {
 
   handleAlpha(){
     const ideas = this.props.ideas
-    debugger
     this.props.sortIdeas(ideas)
   };
 
@@ -120,7 +119,8 @@ IdeaInput.propTypes = {
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchIdeas,
   deleteIdea,
-  deleteComment
+  deleteComment,
+  sortIdeas
 }, dispatch)
 
 export default withStyles(styles) (connect(null, mapDispatchToProps)(IdeaContainer))
