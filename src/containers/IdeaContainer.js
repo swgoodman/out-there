@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchIdeas, deleteIdea, sortIdeas } from '../actions/ideas'
-import { deleteComment } from '../actions/comments'
+import { deleteIdea, sortIdeas } from '../actions/ideas'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
@@ -76,21 +75,17 @@ const styles = theme => ({
 
 class IdeaContainer extends Component {
 
-  handleAlpha(){
-    const ideas = this.props.ideas
-    this.props.sortIdeas(ideas)
-  };
-
-
   render() {
-    const { ideas, board, classes } = this.props
-
+    const { board, classes, ideas } = this.props
+    debugger
     return (
       <div>
         <Paper className={classes.paper}>
           <Typography variant="h4">{board.name}</Typography>
 
-          <Button onClick={ () => this.handleAlpha() }>Alphabetize</Button>
+          < Button variant = "contained" onClick = { () => this.handleAlpha(ideas) }>
+            Alphabetize 
+          </Button>
 
           <Divider className={classes.divider}/>
           <IdeaInput current={ board }/>
@@ -112,15 +107,19 @@ class IdeaContainer extends Component {
   }
 }
 
-IdeaInput.propTypes = {
+IdeaContainer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
+const mapStateToProps = state => {
+  return {
+    ideas: state.ideas.all
+  }
+}
+
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchIdeas,
   deleteIdea,
-  deleteComment,
   sortIdeas
 }, dispatch)
 
-export default withStyles(styles) (connect(null, mapDispatchToProps)(IdeaContainer))
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(IdeaContainer))

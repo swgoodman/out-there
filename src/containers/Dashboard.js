@@ -130,11 +130,11 @@ class Dashboard extends Component {
   render() {
 
     const { user, boards, ideas, board, classes } = this.props
-
+    
     let ideaBlock;
 
     if (Object.keys(board).length > 0 ) {
-      ideaBlock = <IdeaContainer ideas={ ideas } board={ board }/>;
+      ideaBlock = <IdeaContainer board={ board }/>;
     };
 
     return (
@@ -206,7 +206,6 @@ const mapStateToProps = state => {
   return {
     user: state.user.current,
     boards: state.boards.all,
-    ideas: state.ideas.all,
     board: state.boards.current
   }
 }
