@@ -64,12 +64,13 @@ export const deleteIdea = id => {
 }
 
 export const sortIdeas = ideas => {
-  ideas.sort((a, b) => (a.header > b.header) ? 1 : ((b.header > a.header) ? -1 : 0))
+  const sorted = ideas.slice(0)
+  sorted.sort((a, b) => (a.header > b.header) ? 1 : ((b.header > a.header) ? -1 : 0))
   debugger
   return (dispatch) => {
     dispatch({
       type: 'SORT_IDEAS',
-      payload: ideas
+      payload: sorted
     });
   };
 }

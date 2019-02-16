@@ -83,7 +83,7 @@ class IdeaContainer extends Component {
         <Paper className={classes.paper}>
           <Typography variant="h4">{board.name}</Typography>
 
-          < Button variant = "contained" onClick = { () => this.handleAlpha(ideas) }>
+          < Button variant = "contained" onClick = { () => this.props.sortIdeas(ideas) }>
             Alphabetize 
           </Button>
 
