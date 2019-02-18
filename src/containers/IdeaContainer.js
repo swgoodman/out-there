@@ -40,7 +40,8 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
   heroButtons: {
-    marginTop: theme.spacing.unit * 4,
+    width: theme.spacing.unit * 15,
+    marginTop: theme.spacing.unit * 1,
   },
   layout: {
     width: 'auto',
@@ -83,7 +84,7 @@ class IdeaContainer extends Component {
         <Paper className={classes.paper}>
           <Typography variant="h4">{board.name}</Typography>
 
-          < Button variant = "contained" onClick = { () => this.props.sortIdeas(ideas) }>
+          < Button className={classes.heroButtons} variant="contained" size="small" onClick = { () => this.props.sortIdeas(ideas) }>
             Alphabetize 
           </Button>
 
