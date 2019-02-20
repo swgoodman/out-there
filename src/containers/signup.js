@@ -69,7 +69,13 @@ class Signup extends Component {
   onSubmit(e) {
     e.preventDefault()
     const user = this.state
-    this.props.signupUser(user, () => this.props.history.push('/'))
+
+    if (this.props.signupUser(user)) {
+      this.props.history.push('/')
+      window.alert("Thank you for signing up.")
+    } else {
+      window.alert("We're having issues creating your account.")
+    }
   }
 
   render() {

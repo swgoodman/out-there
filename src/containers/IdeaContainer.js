@@ -78,7 +78,7 @@ class IdeaContainer extends Component {
 
   render() {
     const { board, classes, ideas } = this.props
-    debugger
+    
     return (
       <div>
         <Paper className={classes.paper}>

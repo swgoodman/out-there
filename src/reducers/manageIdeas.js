@@ -8,7 +8,6 @@ export default function manageIdeas(state = initialState, action) {
     case 'FETCH_IDEAS':
       return { ...state, all: action.payload.ideas }
     case 'SORT_IDEAS':
-    debugger
       return {...state, all: action.payload}
     case 'CREATE_IDEA':
       return { ...state, all: [...state.all, action.payload] }

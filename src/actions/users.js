@@ -22,7 +22,9 @@ export const loginUser = (user, callback) => {
 
         callback()
       })
-      .catch(err => err)
+      .catch(err => {
+        dispatch(authFailure(err))
+      })
   }
 }
 
@@ -41,15 +43,17 @@ export const signupUser = (user, callback) => {
       .then(response => response.json())
       .then(user => {
         sessionStorage.setItem('jwt', user.jwt)
-
+        
         dispatch({
           type: 'SET_USER',
           payload: user.current
         })
-
         callback()
       })
-      .catch(err => err)
+      .catch(err => {
+        debugger
+        dispatch(authFailure(err))
+      })
   }
 }
 
@@ -93,5 +97,12 @@ export const deleteUser = id => {
         payload: user
       }))
       .catch(err => err)
+  }
+}
+
+const authFailure = (errors) => {
+  return {
+    type: 'AUTHENTICATION_FAILURE',
+    errors: errors
   }
 }
