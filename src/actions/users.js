@@ -19,12 +19,11 @@ export const loginUser = (user, callback) => {
           type: 'SET_USER',
           payload: user.current
         })
-
         callback()
       })
-      .catch(err => {
-        dispatch(authFailure(err))
-      })
+      .catch((error) => {
+        console.log(error)
+      });
   }
 }
 
@@ -101,6 +100,7 @@ export const deleteUser = id => {
 }
 
 const authFailure = (errors) => {
+  debugger
   return {
     type: 'AUTHENTICATION_FAILURE',
     errors: errors

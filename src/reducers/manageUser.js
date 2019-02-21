@@ -1,5 +1,6 @@
 const initialState = {
-  current: {}
+  current: {},
+  errors: []
 }
 
 export default function manageUser(state = initialState, action) {
